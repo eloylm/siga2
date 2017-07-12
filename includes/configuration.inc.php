@@ -57,7 +57,7 @@
 			 *		__VIRTUAL_DIRECTORY__ is defined as '/~my_user'
 			 *		__SUBDIRECTORY__ is defined as '/qcubed'
 			 */
-			define ('__DOCROOT__', '/ms4w/apps/siga2');
+			define ('__DOCROOT__', '/var/www/html/siga2');
 			define ('__VIRTUAL_DIRECTORY__', '/siga2');
 			define ('__SUBDIRECTORY__', '');
 

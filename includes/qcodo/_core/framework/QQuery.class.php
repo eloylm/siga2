@@ -748,9 +748,9 @@
 		}
 		public function UpdateQueryBuilder(QQueryBuilder $objBuilder) {
 			if ($this->mixOperand instanceof QQNamedValue)
-				$objBuilder->AddWhereItem($this->objQueryNode->GetColumnAlias($objBuilder) . ' ILIKE ' . $this->mixOperand->Parameter());
+				$objBuilder->AddWhereItem($this->objQueryNode->GetColumnAlias($objBuilder) . '::text ILIKE ' . $this->mixOperand->Parameter());
 			else
-				$objBuilder->AddWhereItem($this->objQueryNode->GetColumnAlias($objBuilder) . ' ILIKE ' . $objBuilder->Database->SqlVariable($this->mixOperand));
+				$objBuilder->AddWhereItem($this->objQueryNode->GetColumnAlias($objBuilder) . '::text ILIKE ' . $objBuilder->Database->SqlVariable($this->mixOperand));
 		}
 	}
 	

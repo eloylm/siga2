@@ -222,9 +222,11 @@
 		 * @param string $strFormat the format of the date
 		 * @return string the formatted date as a string
 		 */
-		public function __toString($strFormat = null) {
+		//public function __toString($strFormat = null) {
+		public function __toString() {
 			$this->ReinforceNullProperties();
-			if (is_null($strFormat))
+			//if (is_null($strFormat))
+			if (true)
 				$strFormat = QDateTime::$DefaultFormat;
 
 			/*
@@ -336,6 +338,121 @@
 			return $strToReturn;
 		}
 
+		public function toString($strFormat = null) {
+		//public function __toString() {
+			$this->ReinforceNullProperties();
+			if (is_null($strFormat))
+			//if (true)
+				$strFormat = QDateTime::$DefaultFormat;
+
+			/*
+				(?(?=D)([D]+)|
+					(?(?=M)([M]+)|
+						(?(?=Y)([Y]+)|
+							(?(?=h)([h]+)|
+								(?(?=m)([m]+)|
+									(?(?=s)([s]+)|
+										(?(?=z)([z]+)|
+											(?(?=t)([t]+)|
+				))))))))
+			*/
+
+//			$strArray = preg_split('/([^D^M^Y^h^m^s^z^t])+/', $strFormat);
+			preg_match_all('/(?(?=D)([D]+)|(?(?=M)([M]+)|(?(?=Y)([Y]+)|(?(?=h)([h]+)|(?(?=m)([m]+)|(?(?=s)([s]+)|(?(?=z)([z]+)|(?(?=t)([t]+)|))))))))/', $strFormat, $strArray);
+			$strArray = $strArray[0];
+			$strToReturn = '';
+
+			$intStartPosition = 0;
+			for ($intIndex = 0; $intIndex < count($strArray); $intIndex++) {
+				$strToken = trim($strArray[$intIndex]);
+				if ($strToken) {
+					$intEndPosition = strpos($strFormat, $strArray[$intIndex], $intStartPosition);
+					$strToReturn .= substr($strFormat, $intStartPosition, $intEndPosition - $intStartPosition);
+					$intStartPosition = $intEndPosition + strlen($strArray[$intIndex]);
+
+					switch ($strArray[$intIndex]) {
+						case 'M':
+							$strToReturn .= parent::format('n');
+							break;
+						case 'MM':
+							$strToReturn .= parent::format('m');
+							break;
+						case 'MMM':
+							$strToReturn .= parent::format('M');
+							break;
+						case 'MMMM':
+							$strToReturn .= parent::format('F');
+							break;
+			
+						case 'D':
+							$strToReturn .= parent::format('j');
+							break;
+						case 'DD':
+							$strToReturn .= parent::format('d');
+							break;
+						case 'DDD':
+							$strToReturn .= parent::format('D');
+							break;
+						case 'DDDD':
+							$strToReturn .= parent::format('l');
+							break;
+			
+						case 'YY':
+							$strToReturn .= parent::format('y');
+							break;
+						case 'YYYY':
+							$strToReturn .= parent::format('Y');
+							break;
+			
+						case 'h':
+							$strToReturn .= parent::format('g');
+							break;
+						case 'hh':
+							$strToReturn .= parent::format('h');
+							break;
+						case 'hhh':
+							$strToReturn .= parent::format('G');
+							break;
+						case 'hhhh':
+							$strToReturn .= parent::format('H');
+							break;
+
+						case 'mm':
+							$strToReturn .= parent::format('i');
+							break;
+			
+						case 'ss':
+							$strToReturn .= parent::format('s');
+							break;
+			
+						case 'z':
+							$strToReturn .= parent::format('a');
+							break;
+						case 'zz':
+							$strToReturn .= parent::format('A');
+							break;
+						case 'zzz':
+							$strToReturn .= sprintf('%s.m.', substr(parent::format('a'), 0, 1));
+							break;
+						case 'zzzz':
+							$strToReturn .= sprintf('%s.M.', substr(parent::format('A'), 0, 1));
+							break;
+
+						case 'ttt':
+							$strToReturn .= parent::format('T');
+							break;
+
+						default:
+							$strToReturn .= $strArray[$intIndex];
+					}
+				}
+			}
+
+			if ($intStartPosition < strlen($strFormat))
+				$strToReturn .= substr($strFormat, $intStartPosition);
+
+			return $strToReturn;
+		}
 		public function format($strFormat) {
 			$this->ReinforceNullProperties();
 			return parent::format($strFormat);
