@@ -19,8 +19,10 @@
   }
   </script>
 <style type="text/css">
-    div#datos{  
-      
+body{font-family:Arial, Helvetica, sans-serif;}
+
+    .datos{  
+      width: 210mm;
     }
     div#logo{
         width:100%;
@@ -29,7 +31,20 @@
   border: solid #000;
   border-width: thin;
   }
+.verde-oscuro{
+background-color: green;
+width: 100%;
+height: 10px;
+margin-top: -7px;
 
+}
+.verde-claro{
+background-color: #6da26d;
+width: 100%;
+height: 10px;
+margin-top: -7px;
+margin-bottom:5px;
+}
 .tabla_datos {
         font-family:Arial, Helvetica, sans-serif; text-decoration: none;font-size: 12px;
         border: thin solid #666; border-collapse: collapse; page-break-inside:avoid;
@@ -41,6 +56,8 @@
         font-weight: bold; text-transform: uppercase; padding:4px; border: 1px solid #999;
 /*      color: #FFFFFF; background-color: #B0B0B0; */
 }
+.tabla-header{width:100%;}
+.tabla-header td{border:0}
   </style>
 </head>
 <body>
@@ -135,10 +152,25 @@
  <?php }?>
     
 <?php } else { ?>
-<div id="datos">
-
-      <div align="center"><!--img src="logoIQAnp.jpg" height="75" width="418"-->
-          <b><u>Informe de Ensayo Nº <?php $this->lblOrdenesTrabajoId->Render(); ?></u></b>
+<div class="datos">
+<div id="images">
+<table class="tabla-header">
+<tr>
+<td colspan=2>
+<img width=794px height=14px src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/header-color.png")) ?>>
+</td
+</tr>
+<tr>
+<td>
+<img width=266px height=47px src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/logo-iqa-certificado.png")) ?>>
+</td>
+<td>
+<img align="right" width=126px height=64px src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/logo-oaa.png")) ?>>
+</td>
+</tr>
+</table>
+</div>     
+ <div align="center">          <b><u>Informe de Ensayo Nº <?php $this->lblOrdenesTrabajoId->Render(); ?></u></b>
       </div>
       
   <p>Sres.</p>
@@ -201,7 +233,7 @@
 
 </table>
 <p>&nbsp;</p>
-<table  class=tabla_datos border="1" style="width: 90%"  cellpadding="0" cellspacing="0">
+<table  class=tabla_datos border="1" style="width: 100%"  cellpadding="0" cellspacing="0">
      <tr>
       <td><strong>Especificaciones</strong></td>
       <td><strong>Método de Ensayo</strong></td>
@@ -243,7 +275,7 @@ continuaci&oacute;n est&aacute;n fuera del alcance de la
 acreditaci&oacute;n del OAA.<br>
 </strong></p>
 
-<table class=tabla_datos style="width: 77%"  border="1" cellpadding="0" cellspacing="0">
+<table class=tabla_datos style="width: 100%"  border="1" cellpadding="0" cellspacing="0">
       <tr>
       <td>
       <p>&nbsp;</p>
@@ -267,7 +299,7 @@ acreditaci&oacute;n del OAA.<br>
 </table>
 <p>&nbsp;</p>
 <p><strong><u>Observaciones:</u></strong></p>
-<table class=tabla_datos style="width: 77%" border="1" cellpadding="0" cellspacing="0">
+<table class=tabla_datos style="width: 100%" border="1" cellpadding="0" cellspacing="0">
     <tr>
       <td>
       <p>&nbsp;</p>
@@ -289,13 +321,9 @@ acreditaci&oacute;n del OAA.<br>
       </td>
     </tr>
 </table>
-<p>&nbsp;</p>
-<p><strong>Fecha de emisi&oacute;n del infome de ensayo</strong></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>Lugar y Fecha</p>
-<p>&nbsp;</p>
-<p align="right">&nbsp;</p>
+<p align="right"><strong>Fecha de emisi&oacute;n del informe de ensayo</strong></p>
+<p align="right">Lugar y Fecha</p>
+<p align="right"><img width=117px height=121px src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/firma-luis.png")) ?>></p>
 </div>
 </body>
 </html>
@@ -309,14 +337,16 @@ if($_GET['format']=='pdf'){
   
 } else if($_GET['format']=='doc') {
     
+//echo $html;
+
     header("Content-type: application/octet-stream");
     header("Content-Disposition: attachment; filename=".$this->lblOrdenesTrabajoId->Text.".rtf");
     $filename = file_put_contents ($this->lblOrdenesTrabajoId->Text.'.rtf',$html);
     $f = file_get_contents($this->lblOrdenesTrabajoId->Text.'.rtf');
     echo $f;
     unlink($this->lblOrdenesTrabajoId->Text.'.rtf');
+
 }
 
-//echo $html;
 ?>
 <?php $this->RenderEnd(); ?>
