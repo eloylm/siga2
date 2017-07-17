@@ -229,7 +229,7 @@
 			$this->lblFechaEntrada = new QLabel($this->objParentObject, $strControlId);
 			$this->lblFechaEntrada->Name = QApplication::Translate('Fecha Entrada');
 			$this->strFechaEntradaDateTimeFormat = $strDateTimeFormat;
-			$this->lblFechaEntrada->Text = sprintf($this->objOrdenesTrabajo->FechaEntrada) ? $this->objOrdenesTrabajo->FechaEntrada->__toString($this->strFechaEntradaDateTimeFormat) : null;
+			$this->lblFechaEntrada->Text = sprintf($this->objOrdenesTrabajo->FechaEntrada) ? $this->objOrdenesTrabajo->FechaEntrada->toString($this->strFechaEntradaDateTimeFormat) : null;
 			return $this->lblFechaEntrada;
 		}
 
@@ -632,7 +632,7 @@
 			if ($this->lblOrdenesTrabajoId) if ($this->blnEditMode) $this->lblOrdenesTrabajoId->Text = $this->objOrdenesTrabajo->OrdenesTrabajoId;
 
 			if ($this->calFechaEntrada) $this->calFechaEntrada->DateTime = $this->objOrdenesTrabajo->FechaEntrada;
-			if ($this->lblFechaEntrada) $this->lblFechaEntrada->Text = sprintf($this->objOrdenesTrabajo->FechaEntrada) ? $this->objOrdenesTrabajo->FechaEntrada->__toString($this->strFechaEntradaDateTimeFormat) : null;
+			if ($this->lblFechaEntrada) $this->lblFechaEntrada->Text = sprintf($this->objOrdenesTrabajo->FechaEntrada) ? $this->objOrdenesTrabajo->FechaEntrada->toString($this->strFechaEntradaDateTimeFormat) : null;
 
 			if ($this->lstClientes) {
 					$this->lstClientes->RemoveAllItems();

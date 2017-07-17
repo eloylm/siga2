@@ -2083,7 +2083,7 @@
 				case 'OrdenesTrabajoId':
 					return new QQNode('ordenes_trabajo_id', 'OrdenesTrabajoId', 'integer', $this);
 				case 'FechaEntrada':
-					return new QQNode('fecha_entrada', 'FechaEntrada', 'QDateTime', $this);
+					return new QQNode('fecha_entrada', 'FechaEntrada', 'string', $this);
 				case 'ClientesId':
 					return new QQNode('clientes_id', 'ClientesId', 'integer', $this);
 				case 'Clientes':

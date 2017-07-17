@@ -31,6 +31,13 @@ body{font-family:Arial, Helvetica, sans-serif;}
   border: solid #000;
   border-width: thin;
   }
+  .tablasinborde th, td {
+  border: solid #fff;
+  border-width: thin;
+    page-break-before: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+    page-break-after: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+    page-break-inside: avoid; /* or 'auto' */
+  }
 .verde-oscuro{
 background-color: green;
 width: 100%;
@@ -157,15 +164,18 @@ margin-bottom:5px;
 <table class="tabla-header">
 <tr>
 <td colspan=2>
-<img width=794px height=14px src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/header-color.png")) ?>>
+<!--img width=794px height=14px src=<?php //echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/header-color.png")) ?>-->
+<img width=100% height=14px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/header-color.png" ?>>
 </td
 </tr>
 <tr>
 <td>
-<img width=266px height=47px src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/logo-iqa-certificado.png")) ?>>
+<!--img width=266px height=47px src=<?php //echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/logo-iqa-certificado.png")) ?>-->
+<img width=266px height=47px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/logo-iqa-certificado.png" ?>>
 </td>
 <td>
-<img align="right" width=126px height=64px src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/logo-oaa.png")) ?>>
+<!--img align="right" width=126px height=64px src=<?php //echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/logo-oaa.png")) ?>-->
+<img align="right" width=130px height=66px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/logo-oaa.png" ?>>
 </td>
 </tr>
 </table>
@@ -321,9 +331,30 @@ acreditaci&oacute;n del OAA.<br>
       </td>
     </tr>
 </table>
+<p>&nbsp;</p>
+<table class="tablasinborde" border="0" cellpadding="0" cellspacing="0" width="100%" >
+<tr>
+<td>
 <p align="right"><strong>Fecha de emisi&oacute;n del informe de ensayo</strong></p>
 <p align="right">Lugar y Fecha</p>
-<p align="right"><img width=117px height=121px src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/firma-luis.png")) ?>></p>
+<p align="right">Buenos Aires, Argentina - <?php echo date("d-m-Y"); ?></p>
+<!--p align="right"><img width=117px height=121px src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/firma-luis.png")) ?>></p-->
+<p align="right"><img width=117px height=121px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/firma-luis.png" ?>></p>
+<p align="right">Dr. LUIS O. MORENO <br /> Instituto Qu&iacute;mico Argentino S.A. <br /> Director T&eacute;cnico
+</td>
+</tr>
+</table>
+<table class="tablasinborde" border="0" cellpadding="0" cellspacing="0" width="100%" >
+<tr>
+<td>
+<p align="left">Alsina 943 8º Piso Oficina 804/806 - C1088AAA - Ciudad de Bs.As. - Arg.</p>
+<p align="left">Tel./Fax: +54 (011) 4334 3126 (rot.) - E-MAIL: mesaentrada@institutoquimicoarg.com.ar</p>
+</td>
+<td>
+<img src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/fosfa-gafta.png" ?>>
+</td>
+</tr>
+</table>
 </div>
 </body>
 </html>
@@ -339,12 +370,16 @@ if($_GET['format']=='pdf'){
     
 //echo $html;
 
-    header("Content-type: application/octet-stream");
-    header("Content-Disposition: attachment; filename=".$this->lblOrdenesTrabajoId->Text.".rtf");
-    $filename = file_put_contents ($this->lblOrdenesTrabajoId->Text.'.rtf',$html);
-    $f = file_get_contents($this->lblOrdenesTrabajoId->Text.'.rtf');
+    #header("Content-type: application/octet-stream");
+    header("Content-type: application/vnd.ms-word");
+    header("Expires: 0");
+    header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+    header("Content-Disposition: attachment; filename=".$this->lblOrdenesTrabajoId->Text.".doc");
+
+    $filename = file_put_contents ($this->lblOrdenesTrabajoId->Text.'.doc',$html);
+    $f = file_get_contents($this->lblOrdenesTrabajoId->Text.'.doc');
     echo $f;
-    unlink($this->lblOrdenesTrabajoId->Text.'.rtf');
+    unlink($this->lblOrdenesTrabajoId->Text.'.doc');
 
 }
 
