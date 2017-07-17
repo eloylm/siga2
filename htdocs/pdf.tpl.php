@@ -52,8 +52,19 @@ height: 10px;
 margin-top: -7px;
 margin-bottom:5px;
 }
+body{
+font-size: 10px;
+}
+.firma{font-size: 7px;}
+.footer{
+margin-left: 100px;
+width: 70%;
+color: white;
+font-weight: bold;
+font-size:7px;
+}
 .tabla_datos {
-        font-family:Arial, Helvetica, sans-serif; text-decoration: none;font-size: 12px;
+        font-family:Arial, Helvetica, sans-serif; text-decoration: none;
         border: thin solid #666; border-collapse: collapse; page-break-inside:avoid;
 }
 .tabla_datos td {
@@ -166,7 +177,7 @@ margin-bottom:5px;
 <td colspan=2>
 <!--img width=794px height=14px src=<?php //echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/header-color.png")) ?>-->
 <img width=100% height=14px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/header-color.png" ?>>
-</td
+</td>
 </tr>
 <tr>
 <td>
@@ -340,18 +351,24 @@ acreditaci&oacute;n del OAA.<br>
 <p align="right">Buenos Aires, Argentina - <?php echo date("d-m-Y"); ?></p>
 <!--p align="right"><img width=117px height=121px src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/firma-luis.png")) ?>></p-->
 <p align="right"><img width=117px height=121px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/firma-luis.png" ?>></p>
-<p align="right">Dr. LUIS O. MORENO <br /> Instituto Qu&iacute;mico Argentino S.A. <br /> Director T&eacute;cnico
+<p class="firma" align="right">Dr. LUIS O. MORENO <br /> Instituto Qu&iacute;mico Argentino S.A. <br /> Director T&eacute;cnico
 </td>
 </tr>
 </table>
 <table class="tablasinborde" border="0" cellpadding="0" cellspacing="0" width="100%" >
 <tr>
-<td>
+<td colspan=2>
+<img width=100% height=14px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/header-color.png" ?>>
+</td>
+</tr>
+<tr>
+<td class="footer" style=background-image:url(<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/footer-grey.png"?>)> 
 <p align="left">Alsina 943 8º Piso Oficina 804/806 - C1088AAA - Ciudad de Bs.As. - Arg.</p>
 <p align="left">Tel./Fax: +54 (011) 4334 3126 (rot.) - E-MAIL: mesaentrada@institutoquimicoarg.com.ar</p>
+
 </td>
-<td>
-<img src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/fosfa-gafta.png" ?>>
+<td align="right">
+<img width=253px height=89px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/fosfa-gafta.png" ?>>
 </td>
 </tr>
 </table>
