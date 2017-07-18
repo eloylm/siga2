@@ -357,18 +357,8 @@ acreditaci&oacute;n del OAA.<br>
 </table>
 <table class="tablasinborde" border="0" cellpadding="0" cellspacing="0" width="100%" >
 <tr>
-<td colspan=2>
-<img width=100% height=14px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/header-color.png" ?>>
-</td>
-</tr>
-<tr>
-<td class="footer" style=background-image:url(<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/footer-grey.png"?>)> 
-<p align="left">Alsina 943 8º Piso Oficina 804/806 - C1088AAA - Ciudad de Bs.As. - Arg.</p>
-<p align="left">Tel./Fax: +54 (011) 4334 3126 (rot.) - E-MAIL: mesaentrada@institutoquimicoarg.com.ar</p>
-
-</td>
-<td align="right">
-<img width=253px height=89px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/fosfa-gafta.png" ?>>
+<td>
+<img width=563px height=62px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/footer-gray.png" ?>>
 </td>
 </tr>
 </table>

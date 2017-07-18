@@ -51,9 +51,15 @@
 </table>
 
 <?php $_CONTROL->dtgResultados->Render(); ?>
-<p>&nbsp;</p>
-<p align="right"><?php
+<p>&nbsp;
+<p align="right">
+<?php
+ if($_SESSION['UsuarioRol']=='directortecnico') {
+    $_CONTROL->btnFirmar->Render();
+ }?>
+&nbsp;
+<?php
  if($_SESSION['UsuarioRol']=='directortecnico') {
     $_CONTROL->btnCongelar->Render();
- }
-  ?></p>
+ }?>
+</p>

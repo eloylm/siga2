@@ -146,7 +146,7 @@ class OrdenesTrabajoListPanel extends QPanel {
 //        $estado->FilterPostfix = '%';
 //        $estado->FilterBoxSize=4;
         if(($_SESSION['UsuarioRol']=='responsablecertificados')&&($_SESSION['EstadoOt']!='todos') ){
-            $_SESSION['EstadoOt']='Congelado';
+            //$_SESSION['EstadoOt']='Congelado';
             $this->traerPorEstado();
         }else {
             $this->traerPorEstado();
