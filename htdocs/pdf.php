@@ -19,7 +19,8 @@ public $lblOrdenesTrabajoId;
  public $lblFechaResultados;
  public $arrResultados;
  public $lblClienteDireccion;
-
+ public $firmado;
+ public $LogoOAA;
 
 protected function Form_Create() {
 
@@ -38,7 +39,8 @@ protected function Form_Create() {
   $this->lblObservaciones = new QLabel($this);
   $this->lblObservaciones2 = new QLabel($this);
   $this->lblFechaResultados = new QLabel($this);
-
+  $this->firmado = false;
+  $this->LogoOAA = false;
   //$this->arrResultados = new Resultados();
 
    if (QApplication::QueryString('intOrdenesTrabajoId')) {
@@ -70,7 +72,20 @@ protected function Form_Create() {
       if($objOrdenesTrabajo->FechaFinalizado!=NULL){
         $this->lblFechaResultados->Text = $objOrdenesTrabajo->FechaFinalizado->__toString();
       }
-
+      if($objOrdenesTrabajo->Estado == 'Firmado')
+	$this->firmado = 'true';
+      else
+	$this->firmado = 'false';	
+	
+	foreach ($this->arrResultados as $Resultados) {
+	   if(stripos($Resultados->Norma,'%norma%')) {
+		echo "true";
+		//$this->LogoOAA = 'true';
+		//break;
+	   }else{echo "false";} 
+		print_r($Resultados->Norma);
+	}
+	die();
   }
 
 }

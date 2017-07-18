@@ -217,8 +217,8 @@ class AnalisisResultadosPanel extends QPanel {
         if ($countResultados >0) {
             if ($objOrdenesTrabajo->Estado == 'Activo')
             $objOrdenesTrabajo->Estado = 'En proceso';
-        }
-
+        }		
+	
       
         foreach ($arrResultados as $key=> $resultado) {
             $_SESSION[$key]['analisis'] = $resultado->Analisis->Nombre;
@@ -263,7 +263,6 @@ class AnalisisResultadosPanel extends QPanel {
             $_SESSION['FechaFinalizado'] = $objOrdenesTrabajo->FechaFinalizado->__toString();
         }
         $objOrdenesTrabajo->Save();
-
     }
 
     public function dtrOrdenesTrabajo_Bind() {
@@ -276,6 +275,11 @@ class AnalisisResultadosPanel extends QPanel {
     public function dtgResultados_Bind() {
     // Specify the Total Item Count and Load in the Data Source
         $intOrdenesTrabajoId = QApplication::QueryString('intOrdenesTrabajoId');
+        $objOrdenesTrabajo = OrdenesTrabajo::Load($intOrdenesTrabajoId);
+	if (isset($objOrdenesTrabajo)){
+		if (($objOrdenesTrabajo->Estado == 'Congelado') || ($objOrdenesTrabajo->Estado == 'Firmado'))
+			$this->btnFirmar->Enabled = true;
+	}
         $this->dtgResultados->TotalItemCount = Resultados::QueryCount(QQ::AndCondition($this->dtgResultados->Conditions,
             QQ::Equal(QQN::Resultados()->OrdenesTrabajoId, $intOrdenesTrabajoId)));
 
@@ -295,11 +299,9 @@ class AnalisisResultadosPanel extends QPanel {
         if($this->TotalItemCountMayorACero>0){
             $_SESSION['resultados'] = true ;
            $this->btnCongelar->Enabled = true;
-           $this->btnFirmar->Enabled = true;
         }else {
              $_SESSION['resultados'] = false ;
            $this->btnCongelar->Enabled = false;
-           $this->btnFirmar->Enabled = false;
         }
     }
 
@@ -450,9 +452,9 @@ class AnalisisResultadosPanel extends QPanel {
             $resultado->Save();
         }
         
+	$this->Refresh();
 
-
-        $this->CloseSelf(false);
+       //$this->CloseSelf(false);
     }
     public function btnFirmar_Click($strFormId, $strControlId, $strParameter) {
         $objOrdenes = OrdenesTrabajo::LoadByOrdenesTrabajoId(QApplication::QueryString('intOrdenesTrabajoId'));

@@ -175,18 +175,17 @@ font-size:7px;
 <table class="tabla-header">
 <tr>
 <td colspan=2>
-<!--img width=794px height=14px src=<?php //echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/header-color.png")) ?>-->
 <img width=100% height=14px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/header-color.png" ?>>
 </td>
 </tr>
 <tr>
 <td>
-<!--img width=266px height=47px src=<?php //echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/logo-iqa-certificado.png")) ?>-->
 <img width=266px height=47px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/logo-iqa-certificado.png" ?>>
 </td>
 <td>
-<!--img align="right" width=126px height=64px src=<?php //echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/logo-oaa.png")) ?>-->
-<img align="right" width=130px height=66px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/logo-oaa.png" ?>>
+<?php if($this->LogoOAA == 'true') { ?>
+<img align="right" width=130px height=66px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/logo-oaa.png" ;?>>
+<?php } ?>
 </td>
 </tr>
 </table>
@@ -349,9 +348,10 @@ acreditaci&oacute;n del OAA.<br>
 <p align="right"><strong>Fecha de emisi&oacute;n del informe de ensayo</strong></p>
 <p align="right">Lugar y Fecha</p>
 <p align="right">Buenos Aires, Argentina - <?php echo date("d-m-Y"); ?></p>
-<!--p align="right"><img width=117px height=121px src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/firma-luis.png")) ?>></p-->
-<p align="right"><img width=117px height=121px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/firma-luis.png" ?>></p>
+<?php if ($this->firmado == 'true'){ ?>
+<p align="right"><img width=117px height=121px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/firma-luis.png"; ?>></p>
 <p class="firma" align="right">Dr. LUIS O. MORENO <br /> Instituto Qu&iacute;mico Argentino S.A. <br /> Director T&eacute;cnico
+<?php } ?>
 </td>
 </tr>
 </table>
@@ -374,8 +374,7 @@ while (@ob_get_clean());
 if($_GET['format']=='pdf'){
   
 } else if($_GET['format']=='doc') {
-    
-//echo $html;
+echo $html;
 
     #header("Content-type: application/octet-stream");
     header("Content-type: application/vnd.ms-word");

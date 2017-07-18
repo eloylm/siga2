@@ -146,7 +146,7 @@ class OrdenesTrabajoListPanel extends QPanel {
 //        $estado->FilterPostfix = '%';
 //        $estado->FilterBoxSize=4;
         if(($_SESSION['UsuarioRol']=='responsablecertificados')&&($_SESSION['EstadoOt']!='todos') ){
-            //$_SESSION['EstadoOt']='Congelado';
+            $_SESSION['EstadoOt']='Congelado';
             $this->traerPorEstado();
         }else {
             $this->traerPorEstado();
@@ -234,7 +234,8 @@ class OrdenesTrabajoListPanel extends QPanel {
        $estado=$this->dtgOrdenesTrabajos->MetaAddColumn('Estado');
        if(isset($_SESSION['EstadoOt'])){
            switch ($_SESSION['EstadoOt']){
-               case 'Congelado' :   $estado->Filter=(QQ::ILike(QQN::OrdenesTrabajo()->Estado, 'Congelado'));
+               case 'Congelado' :   $estado->Filter=(QQ::ILike(QQN::OrdenesTrabajo()->Estado, '%ado'));
+				    		   //QQ::OrCondition(QQ::ILike(QQN::Person()->FirstName, '%' . $strFilter . '%'), QQ::Like(QQN::Person()->LastName, '%' . $strFilter . '%'));
                                     $estado->FilterActivate();
                                     break;
                case 'En proceso' :  $estado->Filter=(QQ::ILike(QQN::OrdenesTrabajo()->Estado, 'En proceso'));

@@ -49,12 +49,11 @@
     <td><?php $_CONTROL->lblReferenciaCliente->Render(); ?></td>
   </tr>
 </table>
-
 <?php $_CONTROL->dtgResultados->Render(); ?>
 <p>&nbsp;
 <p align="right">
 <?php
- if($_SESSION['UsuarioRol']=='directortecnico') {
+ if($_SESSION['UsuarioRol']=='directortecnico')  {
     $_CONTROL->btnFirmar->Render();
  }?>
 &nbsp;

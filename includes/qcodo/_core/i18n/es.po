@@ -22,10 +22,10 @@ MsgStr ""
 
 # For QPaginatedControl controls
 MsgId "item"
-MsgStr "art�culo"
+MsgStr ""
 
 MsgId "items"
-MsgStr "art�culos"
+MsgStr ""
 
 
 # For QListBox and QCalendar controls
