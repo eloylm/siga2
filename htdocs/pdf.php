@@ -40,7 +40,6 @@ protected function Form_Create() {
   $this->lblObservaciones2 = new QLabel($this);
   $this->lblFechaResultados = new QLabel($this);
   $this->firmado = false;
-  $this->LogoOAA = false;
   //$this->arrResultados = new Resultados();
 
    if (QApplication::QueryString('intOrdenesTrabajoId')) {
@@ -77,15 +76,6 @@ protected function Form_Create() {
       else
 	$this->firmado = 'false';	
 	
-	foreach ($this->arrResultados as $Resultados) {
-	   if(stripos($Resultados->Norma,'%norma%')) {
-		echo "true";
-		//$this->LogoOAA = 'true';
-		//break;
-	   }else{echo "false";} 
-		print_r($Resultados->Norma);
-	}
-	die();
   }
 
 }

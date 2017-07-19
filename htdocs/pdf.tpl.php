@@ -183,6 +183,32 @@ font-size:7px;
 <img width=266px height=47px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/logo-iqa-certificado.png" ?>>
 </td>
 <td>
+<?php 
+$array = array(
+"SAGPyA 1075/94 NORMA XX Y 1262/2004",
+"SAGPyA 1075/94 NORMA XX Y 1262/2005",
+"SAGPyA 1075/94 NORMA XX Y 1262/2006",
+"SAGPyA 1075/94 NORMA XX Y 1262/2007",
+"SAGPyA 1075/94 NORMA XX Y 1262/2008",
+"SAGPyA 1075/94 NORMA XII",
+"SAGPyA 151/2008 NORMA XVII",
+"SAGPyA 1075/94 NORMA XXVI",
+"SAGPyA 1075/94 NORMA IX",
+"SAGPyA 1075/94 NORMA XXVI",
+"ISO 660:2009",
+"IRAM 15850-2:2009");
+
+//print_r($array);
+	foreach ($this->arrResultados as $resultado){
+//		 print_r($resultado->Norma);
+		if (in_array($resultado->Norma,$array)) {
+			$this->LogoOAA = 'true';
+		}
+	}
+//die();
+
+?>
+
 <?php if($this->LogoOAA == 'true') { ?>
 <img align="right" width=130px height=66px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/logo-oaa.png" ;?>>
 <?php } ?>
