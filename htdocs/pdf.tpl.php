@@ -197,12 +197,13 @@ $array = array(
 "SAGPyA 1075/94 NORMA XXVI",
 "ISO 660:2009",
 "IRAM 15850-2:2009");
-
+$asterisco = '*';
 //print_r($array);
 	foreach ($this->arrResultados as $resultado){
 //		 print_r($resultado->Norma);
 		if (in_array($resultado->Norma,$array)) {
 			$this->LogoOAA = 'true';
+			$asterisco = '';
 		}
 	}
 //die();
@@ -289,7 +290,7 @@ $array = array(
     </tr>
 <?php foreach ($this->arrResultados as $resultado){
 	echo "<tr>";
-	echo "<td>$resultado->Analisis</td>";
+	echo "<td>$resultado->Analisis $asterisco </td>";
 	echo "<td>$resultado->Norma</td>";
 	echo "<td>$resultado->Medicion</td>";
 	echo "<td>$resultado->Resultado</td>";
