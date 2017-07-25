@@ -74,8 +74,9 @@ class OrdenesTrabajoMetaControl extends OrdenesTrabajoMetaControlGen {
             $lstCliente = new QListItem($cliente->Nombre,$cliente->ClientesId);
             $this->lstClientes->AddItem($lstCliente);
         }
-        $this->lstClientes->AddAction(new QclickEvent(), new QAjaxControlAction($this->objParentObject,'txtCliente_Change'));
+        $this->lstClientes->AddAction(new QClickEvent(), new QAjaxControlAction($this->objParentObject,'txtCliente_Change'));
         $this->lstClientes->AddAction(new QFocusEvent(), new QAjaxControlAction($this->objParentObject,'txtCliente_Change'));
+        $this->lstClientes->AddAction(new QEnterKeyEvent(), new QAjaxControlAction($this->objParentObject,'txtCliente_Change'));
        
         if($this->objOrdenesTrabajo->Clientes){
             $this->lstClientes->Name = $this->objOrdenesTrabajo->ClientesId;
