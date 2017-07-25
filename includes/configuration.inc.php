@@ -195,8 +195,8 @@
 			define('ERROR_LOG_FLAG', true);
 
 			// To enable the display of "Friendly" error pages and messages, define them here (path MUST be relative from the DOCROOT)
-//			define('ERROR_FRIENDLY_PAGE_PATH', __PHP_ASSETS__ . '/friendly_error_page.php');
-//			define('ERROR_FRIENDLY_AJAX_MESSAGE', 'Oops!  An error has occurred.\r\n\r\nThe error was logged, and we will take a look into this right away.');
+			define('ERROR_FRIENDLY_PAGE_PATH', __PHP_ASSETS__ . '/friendly_error_page.php');
+			define('ERROR_FRIENDLY_AJAX_MESSAGE', 'Atención!  Ha ocurrido un error.\r\n\r\nEl error fue registrado, si persiste el error avisar a Lea.');
 
 			break;
 	}

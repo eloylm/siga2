@@ -27,6 +27,7 @@
 		public $chkEstado;
 		public $lstUsuarios;
 
+    		public $lnkDeleteClientes;
 		// Other ListBoxes (if applicable) via Unique ReverseReferences and ManyToMany References
 
 		// Other Controls
@@ -78,7 +79,11 @@
 			$this->btnDelete->AddAction(new QClickEvent(), new QAjaxControlAction($this, 'btnDelete_Click'));
 			$this->btnDelete->Visible = $this->mctMuestras->EditMode;
 
-                        $this->txtDetalle->Focus();
+			$this->lnkDeleteClientes = New QLinkButton($this);
+			$this->lnkDeleteClientes->Text = "x";
+			$this->lnkDeleteClientes->AddAction(new QClickEvent(), new QJavaScriptAction('document.getElementById(\''.$this->lstClientes->ControlId.'\').value=\'\';'));
+                        
+			$this->txtDetalle->Focus();
 		}
 
 		// Control AjaxAction Event Handlers

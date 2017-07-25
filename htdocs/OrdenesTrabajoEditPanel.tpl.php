@@ -16,7 +16,7 @@
             </div>
             <div style="float:left;margin-right:10px;margin-top:0px">
             <br>
-                   <label style="display:block">Cliente</label><br><?php $_CONTROL->lstClientes->RenderWithError(); ?>
+                   <label style="display:block">Cliente <?php $_CONTROL->lnkDeleteClientes->Render(); ?></label><br><?php $_CONTROL->lstClientes->RenderWithError(); ?>
                    <p>
                   <label style="display:block">Buque</label><br>  <?php $_CONTROL->txtBuque->Render(); ?>
             </div>

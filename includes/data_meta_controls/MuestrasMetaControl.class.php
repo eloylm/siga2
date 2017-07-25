@@ -62,6 +62,7 @@
        
         $this->lstClientes->AddAction(new QClickEvent(), new QAjaxControlAction($this->objParentObject,'txtCliente_Change'));
         $this->lstClientes->AddAction(new QFocusEvent(), new QAjaxControlAction($this->objParentObject,'txtCliente_Change'));
+        $this->lstClientes->AddAction(new QEnterKeyEvent(), new QAjaxControlAction($this->objParentObject,'txtCliente_Change'));
         
        
         return $this->lstClientes;

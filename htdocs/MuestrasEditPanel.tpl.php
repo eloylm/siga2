@@ -13,7 +13,7 @@
             <div  style="display:inline">
                 <div  class="renderWithName">
                 <div class="left">
-                 <label for="72">Cliente</label>
+                 <label for="72">Cliente <?php $_CONTROL->lnkDeleteClientes->Render(); ?></label>
                 </div>
                 <div class="right">
                     <?php $_CONTROL->lstClientes->Render(); ?>

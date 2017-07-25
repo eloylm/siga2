@@ -34,7 +34,7 @@ class OrdenesTrabajoEditPanel extends QPanel {
     public $idOrdenTrabajo;
     public $txtEstado;
     public $txtObservaciones;
-
+    public $lnkDeleteClientes;
 
 
 
@@ -100,9 +100,14 @@ class OrdenesTrabajoEditPanel extends QPanel {
         $this->btnDelete->AddAction(new QClickEvent(), new QAjaxControlAction($this, 'btnDelete_Click'));
         $this->btnDelete->Visible = $this->mctOrdenesTrabajo->EditMode;
 
+	$this->lnkDeleteClientes = New QLinkButton($this);
+	$this->lnkDeleteClientes->Text = "x";
+	$this->lnkDeleteClientes->AddAction(new QClickEvent(), new QJavaScriptAction('document.getElementById(\''.$this->lstClientes->ControlId.'\').value=\'\';'));
+
         $this->lstMuestras->Focus();
         $this->lstMuestras->Required = true;
         $this->lstClientes->Required = true;
+        $this->lstAnalisises->Required = true;
         if(isset($intOrdenesTrabajoId)) {
             $this->idOrdenTrabajo = $intOrdenesTrabajoId;
         }
@@ -177,7 +182,7 @@ class OrdenesTrabajoEditPanel extends QPanel {
         $this->mctOrdenesTrabajo->DeleteOrdenesTrabajo();
         $this->CloseSelf(true);
     }
-
+    
     public function btnCancel_Click($strFormId, $strControlId, $strParameter) {
         $this->CloseSelf(false);
     }
