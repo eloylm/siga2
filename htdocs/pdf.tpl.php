@@ -6,18 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Documento</title>
-<script type="text/php">
-
-  if ( isset($do</title>
-<script type="text/php">
-
-  if ( mpdf) ) {
-
+<!--script type="text/php"-->
+<?php
+ /* if (isset($do)){
+    if (mpdf) {
     $font = Font_Metrics::get_font("verdana", "bold");
     $dompdf->page_text(72, 18, "Header: {PAGE_NUM} of {PAGE_COUNT}", $font, 6, array(0,0,0));
-
-  }
-  </script>
+   }
+  }*/
+?>
 <style type="text/css">
 body{font-family:Arial, Helvetica, sans-serif;}
 
