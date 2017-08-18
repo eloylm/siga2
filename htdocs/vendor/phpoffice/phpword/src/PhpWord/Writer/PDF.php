@@ -46,6 +46,7 @@ class PDF
     {
         $pdfLibraryName = Settings::getPdfRendererName();
         $pdfLibraryPath = Settings::getPdfRendererPath();
+error_log($pdfLibraryName . "---- " . $pdfLibraryPath);
         if (is_null($pdfLibraryName) || is_null($pdfLibraryPath)) {
             throw new Exception("PDF rendering library or library path has not been defined.");
         }

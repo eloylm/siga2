@@ -64,9 +64,11 @@ $objWriter->save('helloWorld.odt');
 $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'HTML');
 $objWriter->save('helloWorld.html');
 
-
-\PhpOffice\PhpWord\Settings::setPdfRendererPath(APP.'vendors'.DS.tcpdf.DS.'tcpdf.php');
-\PhpOffice\PhpWord\Settings::setPdfRendererName('TCPDF');
+$PdfPath = '/var/www/html/siga2/htdocs/vendor/mpdf/mpdf/mpdf.php';
+#\PhpOffice\PhpWord\Settings::setPdfRendererPath('/var/www/html/siga2/htdocs/vendormpdf.php');
+\PhpOffice\PhpWord\Settings::setPdfRendererPath($PdfPath);
+$renderName='MPDF';
+\PhpOffice\PhpWord\Settings::setPdfRendererName($renderName);
 $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'PDF');
 $objWriter->save($PdfPath,true);
 
