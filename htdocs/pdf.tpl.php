@@ -172,7 +172,8 @@ font-size:7px;
 <table class="tabla-header">
 <tr>
 <td colspan=2>
-<img width=100% height=14px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/header-color.png" ?>>
+<img width=794px height=14px src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/header-color.png")) ?>>
+<!--img width=100% height=14px src=<?php //echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/header-color.png" ?>-->
 </td>
 </tr>
 <tr>
@@ -396,11 +397,20 @@ $html=ob_get_contents();
 while (@ob_get_clean());
 
 if($_GET['format']=='pdf'){
+    $filename = file_put_contents ($this->lblOrdenesTrabajoId->Text.'.html',$html);
+    #header("Content-type: application/pdf");
+    #header("Expires: 0");
+    #header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+    #header("Content-Disposition: attachment; filename=".$this->lblOrdenesTrabajoId->Text.".pdf");
+    passthru('wkhtmltopdf '.$this->lblOrdenesTrabajoId->Text.'.html '.$this->lblOrdenesTrabajoId->Text.'.pdf');
+    #$f = file_get_contents($this->lblOrdenesTrabajoId->Text.'.pdf');
+    #echo $f;
+    #unlink($this->lblOrdenesTrabajoId->Text.'.html');
+    #unlink($this->lblOrdenesTrabajoId->Text.'.pdf');
   
 } else if($_GET['format']=='doc') {
-echo $html;
+#echo $html;
 
-    #header("Content-type: application/octet-stream");
     header("Content-type: application/vnd.ms-word");
     header("Expires: 0");
     header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
@@ -409,8 +419,8 @@ echo $html;
     $filename = file_put_contents ($this->lblOrdenesTrabajoId->Text.'.doc',$html);
     $f = file_get_contents($this->lblOrdenesTrabajoId->Text.'.doc');
     echo $f;
-    unlink($this->lblOrdenesTrabajoId->Text.'.doc');
-
+    unlink($this->lblOrdenesTrabajoId->Text.'.html');
+    #passthru('wkhtmltopdf /tmp/'.$this->lblOrdenesTrabajoId->Text.'.html /tmp/'.$this->lblOrdenesTrabajoId->Text.'.pdf');
 }
 
 ?>
