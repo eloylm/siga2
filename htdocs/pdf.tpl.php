@@ -1,32 +1,36 @@
 <?php $this->RenderBegin(); ?>
 <?php ob_start(); ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Documento</title>
-<!--script type="text/php"-->
-<?php
- /* if (isset($do)){
-    if (mpdf) {
-    $font = Font_Metrics::get_font("verdana", "bold");
-    $dompdf->page_text(72, 18, "Header: {PAGE_NUM} of {PAGE_COUNT}", $font, 6, array(0,0,0));
-   }
-  }*/
-?>
 <style type="text/css">
-body{font-family:Arial, Helvetica, sans-serif;}
-
+     @page {
+    margin-top: 5mm;
+    margin-bottom: 0mm;
+ }
+    @media print {
+     body {margin-top: 5mm; margin-bottom: 0mm; 
+           margin-left: 0mm; margin-right: 0mm}
+}
+body{font-family:Arial, Helvetica, sans-serif;width: 190mm; margin-left: 10mm; margin-right: 10mm;font-size: 10px;
+    margin-top: 1; height:297mm}
+  header{top:1;width:174mm;}
     .datos{  
-      width: 210mm;
-    }
+      width: 174mm;
+        display:block;
+        margin-left: 2mm;
+        margin-top: 10mm;
+  }
     div#logo{
-        width:100%;
+        width:174mm;
     }
   .tablaborde th, td {
   border: solid #000;
   border-width: thin;
+      width:174mm;
   }
   .tablasinborde th, td {
   border: solid #fff;
@@ -34,35 +38,40 @@ body{font-family:Arial, Helvetica, sans-serif;}
     page-break-before: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
     page-break-after: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
     page-break-inside: avoid; /* or 'auto' */
+      width:174mm;
   }
 .verde-oscuro{
 background-color: green;
-width: 100%;
+width: 174mm;
 height: 10px;
 margin-top: -7px;
 
 }
 .verde-claro{
 background-color: #6da26d;
-width: 100%;
+width: 174mm;
 height: 10px;
 margin-top: -7px;
 margin-bottom:5px;
 }
-body{
-font-size: 10px;
-}
 .firma{font-size: 7px;}
-.footer{
-margin-left: 100px;
-width: 70%;
-color: white;
+footer{
+  width:174mm;
+    color: white;
 font-weight: bold;
 font-size:7px;
+    bottom: 0;
+    position:static;
+        margin-left: 5mm;
 }
+    section{margin-left: 5mm;}
+    
 .tabla_datos {
         font-family:Arial, Helvetica, sans-serif; text-decoration: none;
         border: thin solid #666; border-collapse: collapse; page-break-inside:avoid;
+        width: 174mm;
+    margin-right: 5mm;
+    
 }
 .tabla_datos td {
         padding:4px; border: thin solid #999;
@@ -71,9 +80,10 @@ font-size:7px;
         font-weight: bold; text-transform: uppercase; padding:4px; border: 1px solid #999;
 /*      color: #FFFFFF; background-color: #B0B0B0; */
 }
-.tabla-header{width:100%;}
+.tabla-header{width: 174mm;margin-left: 5mm; align-self: center}
 .tabla-header td{border:0}
-  </style>
+ 
+</style>
 </head>
 <body>
 
@@ -167,18 +177,18 @@ font-size:7px;
  <?php }?>
     
 <?php } else { ?>
-<div class="datos">
-<div id="images">
+<header>
 <table class="tabla-header">
-<tr>
+<!--tr>
 <td colspan=2>
-<img width=794px height=14px src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/header-color.png")) ?>>
-<!--img width=100% height=14px src=<?php //echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/header-color.png" ?>-->
+<img width=794px height=14px src=<?php //echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/header-color.png")) ?>>
+<img width=100% height=14px src=<?php //echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/header-color.png" ?>>
 </td>
-</tr>
+</tr-->
 <tr>
 <td>
-<img width=266px height=47px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/logo-iqa-certificado.png" ?>>
+<!--img width=266px height=47px src=<?php //echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/logo-iqa-certificado.png" ?>-->
+<img width=266px height=47px src=<?php echo'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/logo-iqa-certificado.png")); ?>>
 </td>
 <td>
 <?php 
@@ -209,24 +219,27 @@ $asterisco = '*';
 ?>
 
 <?php if($this->LogoOAA == 'true') { ?>
-<img align="right" width=130px height=66px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/logo-oaa.png" ;?>>
+<!--img align="right" width=130px height=66px src=<?php //echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/logo-oaa.png" ;?>-->
+<img align="right" width=130px height=66px src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/logo-oaa.png")) ;?>>
 <?php } ?>
 </td>
 </tr>
 </table>
-</div>     
+</header>
+<section>
+<div class="datos">
  <div align="center">          <b><u>Informe de Ensayo Nº <?php $this->lblOrdenesTrabajoId->Render(); ?></u></b>
       </div>
       
   <p>Sres.</p>
 <p><?php $this->lblCliente->Render(); ?></p>
 <p><?php $this->lblClienteDireccion->Render(); ?><br></p>
-<table class=tabla_datos border="1" cellpadding="0" cellspacing="0"  style="width: 100%;">
+<table class=tabla_datos border="1" cellpadding="0" cellspacing="0">
 
     <tr>
       <td>
       <strong>Descripci&oacute;n de la muestra</strong></td>
-      <td align="right"><table class=tabla_datos border="1" cellpadding="2" cellspacing="0"  style="width: 100%;">
+      <td align="right">
 
         <tr>
       <td><strong>Mercaderia</strong></td>
@@ -260,25 +273,25 @@ $asterisco = '*';
      <td><strong>Observaciones</strong></td>
       <td align="right"><?php $this->lblObservaciones2->Render(); ?></td>
     </tr>
-</table></td>
+	</td>
     </tr>
     <tr>
       <td>
-      Condici&oacute;n de la muestra</td>
+      <strong>Condici&oacute;n de la muestra</strong></td>
       <td align="right"><?php $this->lblObservaciones->Render(); ?></td>
     </tr>
     <tr>
-      <td>Fecha ingreso muestra</td>
+      <td><strong>Fecha ingreso muestra</strong></td>
       <td align="right"><?php $this->lblFechaEntrada->Render(); ?></td>
     </tr>
     <tr>
-        <td>Fecha del an&aacute;lisis</td>
+        <td><strong>Fecha del an&aacute;lisis</strong></td>
       <td align="right"><?php echo $this->lblFechaResultados->Render(); ?></td>
     </tr>
 
 </table>
 <p>&nbsp;</p>
-<table  class=tabla_datos border="1" style="width: 100%"  cellpadding="0" cellspacing="0">
+<table  class=tabla_datos border="1"  cellpadding="0" cellspacing="0">
      <tr>
       <td><strong>Especificaciones</strong></td>
       <td><strong>Método de Ensayo</strong></td>
@@ -298,7 +311,7 @@ $asterisco = '*';
 ?>
 </table>
 <p>&nbsp;</p>
-<p><strong><u>Referencias:</u></p>
+<p><strong><u>Referencias:</u>
 <p>Lugar de ejecuci&oacute;n de Ensayo:
 <br>
 (A): Laboratorio Central Buenos Aires<br>
@@ -320,7 +333,7 @@ continuaci&oacute;n est&aacute;n fuera del alcance de la
 acreditaci&oacute;n del OAA.<br>
 </strong></p>
 
-<table class=tabla_datos style="width: 100%"  border="1" cellpadding="0" cellspacing="0">
+<table class=tabla_datos border="1" cellpadding="0" cellspacing="0">
       <tr>
       <td>
       <p>&nbsp;</p>
@@ -344,7 +357,7 @@ acreditaci&oacute;n del OAA.<br>
 </table>
 <p>&nbsp;</p>
 <p><strong><u>Observaciones:</u></strong></p>
-<table class=tabla_datos style="width: 100%" border="1" cellpadding="0" cellspacing="0">
+<table class=tabla_datos  border="1" cellpadding="0" cellspacing="0">
     <tr>
       <td>
       <p>&nbsp;</p>
@@ -367,27 +380,34 @@ acreditaci&oacute;n del OAA.<br>
     </tr>
 </table>
 <p>&nbsp;</p>
-<table class="tablasinborde" border="0" cellpadding="0" cellspacing="0" width="100%" >
+
+<table class="tablasinborde" border="0" cellpadding="0" cellspacing="0"  >
 <tr>
 <td>
 <p align="right"><strong>Fecha de emisi&oacute;n del informe de ensayo</strong></p>
 <p align="right">Lugar y Fecha</p>
 <p align="right">Buenos Aires, Argentina - <?php echo date("d-m-Y"); ?></p>
 <?php if ($this->firmado == 'true'){ ?>
-<p align="right"><img width=117px height=121px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/firma-luis.png"; ?>></p>
+<p align="right">
+<img width=117px height=121px src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/firma-luis.png")); ?>></p>
+<!--img width=117px height=121px src=<?php //echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/firma-luis.png"; ?>-->
 <p class="firma" align="right">Dr. LUIS O. MORENO <br /> Instituto Qu&iacute;mico Argentino S.A. <br /> Director T&eacute;cnico
 <?php } ?>
 </td>
 </tr>
+</div>
 </table>
-<table class="tablasinborde" border="0" cellpadding="0" cellspacing="0" width="100%" >
+</section>
+<footer>
+<table class="tablasinborde" border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td>
-<img width=563px height=62px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/footer-gray.png" ?>>
+<!--img width=563px height=62px src=<?php //echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/footer.png" ?>-->
+<img src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/footer.png")); ?>>
 </td>
 </tr>
 </table>
-</div>
+</footer>
 </body>
 </html>
 <?php } //fin else ?>
@@ -397,14 +417,15 @@ $html=ob_get_contents();
 while (@ob_get_clean());
 
 if($_GET['format']=='pdf'){
+#echo $html;
     $filename = file_put_contents ($this->lblOrdenesTrabajoId->Text.'.html',$html);
-    #header("Content-type: application/pdf");
-    #header("Expires: 0");
-    #header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-    #header("Content-Disposition: attachment; filename=".$this->lblOrdenesTrabajoId->Text.".pdf");
+    header("Content-type: application/pdf");
+    header("Expires: 0");
+    header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+    header("Content-Disposition: attachment; filename=".$this->lblOrdenesTrabajoId->Text.".pdf");
     passthru('wkhtmltopdf '.$this->lblOrdenesTrabajoId->Text.'.html '.$this->lblOrdenesTrabajoId->Text.'.pdf');
-    #$f = file_get_contents($this->lblOrdenesTrabajoId->Text.'.pdf');
-    #echo $f;
+    $f = file_get_contents($this->lblOrdenesTrabajoId->Text.'.pdf');
+    echo $f;
     #unlink($this->lblOrdenesTrabajoId->Text.'.html');
     #unlink($this->lblOrdenesTrabajoId->Text.'.pdf');
   
@@ -419,7 +440,7 @@ if($_GET['format']=='pdf'){
     $filename = file_put_contents ($this->lblOrdenesTrabajoId->Text.'.doc',$html);
     $f = file_get_contents($this->lblOrdenesTrabajoId->Text.'.doc');
     echo $f;
-    unlink($this->lblOrdenesTrabajoId->Text.'.html');
+    unlink($this->lblOrdenesTrabajoId->Text.'.doc');
     #passthru('wkhtmltopdf /tmp/'.$this->lblOrdenesTrabajoId->Text.'.html /tmp/'.$this->lblOrdenesTrabajoId->Text.'.pdf');
 }
 
