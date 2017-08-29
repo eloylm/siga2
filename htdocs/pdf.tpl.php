@@ -5,85 +5,113 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Documento</title>
+<title><?php echo $this->lblOrdenesTrabajoId->Text; ?></title>
+<?php if($_GET['format']=='doc') { ?>
 <style type="text/css">
-     @page {
-    margin-top: 5mm;
-    margin-bottom: 0mm;
- }
-    @media print {
-     body {margin-top: 5mm; margin-bottom: 0mm; 
-           margin-left: 0mm; margin-right: 0mm}
+@page {margin-top: -15mm; margin-bottom: 0mm; }
+@media print { body {margin-top: -15mm; margin-bottom: 0mm;  margin-left: 0mm; margin-right: 0mm} }
+body{font-family:Arial, Helvetica, sans-serif;width: 174mm; margin-left:-15mm; margin-right:0;font-size: 10px;  margin-top:-10mm; height:210mm}
+header{margin-top:-15mm;width:174mm;margin-left:-15mm; height:0}
+.tabla-header{width: 174mm;margin-left: -15mm; margin-top:-15mm}
+.tabla-header td{border:0}
+.datos{  
+    width: 174mm;
+    display:block;
+    margin-left: 2mm;
+    margin-top: 10mm;
 }
-body{font-family:Arial, Helvetica, sans-serif;width: 190mm; margin-left: 10mm; margin-right: 10mm;font-size: 10px;
-    margin-top: 1; height:297mm}
-  header{top:1;width:174mm;}
-    .datos{  
-      width: 174mm;
-        display:block;
-        margin-left: 2mm;
-        margin-top: 10mm;
-  }
-    div#logo{
-        width:174mm;
-    }
-  .tablaborde th, td {
+.tablaborde th, td {
   border: solid #000;
   border-width: thin;
-      width:174mm;
-  }
-  .tablasinborde th, td {
+  width:174mm;
+}
+.tablasinborde th, td {
   border: solid #fff;
   border-width: thin;
-    page-break-before: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
-    page-break-after: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
-    page-break-inside: avoid; /* or 'auto' */
-      width:174mm;
+  page-break-before: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+  page-break-after: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+  page-break-inside: avoid; /* or 'auto' */
+  width:174mm;
   }
-.verde-oscuro{
-background-color: green;
-width: 174mm;
-height: 10px;
-margin-top: -7px;
-
-}
-.verde-claro{
-background-color: #6da26d;
-width: 174mm;
-height: 10px;
-margin-top: -7px;
-margin-bottom:5px;
-}
 .firma{font-size: 7px;}
 footer{
   width:174mm;
-    color: white;
-font-weight: bold;
-font-size:7px;
-    bottom: 0;
-    position:static;
-        margin-left: 5mm;
+  color: white;
+  font-weight: bold;
+  font-size:7px;
+  bottom: 0;
+  position:static;
+	  margin-left: -15mm;
+  page-break-before: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+  page-break-after: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+  page-break-inside: avoid; /* or 'auto' */
 }
-    section{margin-left: 5mm;}
-    
+section{margin-left: -15mm;}
 .tabla_datos {
         font-family:Arial, Helvetica, sans-serif; text-decoration: none;
         border: thin solid #666; border-collapse: collapse; page-break-inside:avoid;
         width: 174mm;
-    margin-right: 5mm;
-    
+	margin-left:-15mm;
+	display:inline-block;  
 }
-.tabla_datos td {
-        padding:4px; border: thin solid #999;
-}
-.tabla_datos th {
-        font-weight: bold; text-transform: uppercase; padding:4px; border: 1px solid #999;
-/*      color: #FFFFFF; background-color: #B0B0B0; */
-}
-.tabla-header{width: 174mm;margin-left: 5mm; align-self: center}
-.tabla-header td{border:0}
+.tabla_datos td {padding:4px; border: thin solid #999;}
+.tabla_datos th {font-weight: bold; text-transform: uppercase; padding:4px; border: 1px solid #999;}
  
 </style>
+<?php  } else if($_GET['format']=='pdf'){?>
+<style type="text/css">
+@page {margin-top: 5mm; margin-bottom: 0mm; }
+@media print { body {margin-top: 5mm; margin-bottom: 0mm;  margin-left: 0mm; margin-right: 0mm} }
+body{font-family:Arial, Helvetica, sans-serif;width: 210mm; margin-left:15mm; margin-right:0;font-size: 11px;  margin-top: 1; height:297mm}
+header{top:-5mm;width:190mm;margin-left:0;margin-right:0}
+.tabla-header{width: 190mm;margin-left: 0;}
+.tabla-header td{border:0}
+.datos{  
+    width: 210mm;
+    display:block;
+    margin-left: 0;
+    margin-top: 10mm;
+}
+.tablaborde th, td {
+  border: solid #000;
+  border-width: thin;
+  width:210mm;
+}
+.tablasinborde th, td {
+  border: solid #fff;
+  border-width: thin;
+  page-break-before: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+  page-break-after: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+  page-break-inside: avoid; /* or 'auto' */
+  width:210mm;
+  }
+.firma{font-size: 7px;}
+footer{
+  width:210mm;
+  color: white;
+  font-weight: bold;
+  font-size:7px;
+  bottom: 0;
+  position:static;
+  margin-left: 5mm;
+  page-break-before: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+  page-break-after: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+  page-break-inside: avoid; /* or 'auto' */
+}
+section{margin-left: 0; margin-right:0}
+.tabla_datos {
+        font-family:Arial, Helvetica, sans-serif; text-decoration: none;
+        border: thin solid #666; border-collapse: collapse; page-break-inside:avoid;
+        width: 210mm;
+  	margin-right: 0;
+	margin-left:0;
+	display:inline-block;  
+}
+.tabla_datos td {padding:4px; border: thin solid #999;}
+.tabla_datos th {font-weight: bold; text-transform: uppercase; padding:4px; border: 1px solid #999;}
+ 
+</style>
+<?php  }?>
 </head>
 <body>
 
@@ -179,16 +207,10 @@ font-size:7px;
 <?php } else { ?>
 <header>
 <table class="tabla-header">
-<!--tr>
-<td colspan=2>
-<img width=794px height=14px src=<?php //echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/header-color.png")) ?>>
-<img width=100% height=14px src=<?php //echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/header-color.png" ?>>
-</td>
-</tr-->
 <tr>
 <td>
-<!--img width=266px height=47px src=<?php //echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/logo-iqa-certificado.png" ?>-->
-<img width=266px height=47px src=<?php echo'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/logo-iqa-certificado.png")); ?>>
+<img width=266px height=47px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/logo-iqa-certificado.png" ?>>
+<!--img width=266px height=47px src=<?php //echo'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/logo-iqa-certificado.png")); ?>-->
 </td>
 <td>
 <?php 
@@ -219,8 +241,8 @@ $asterisco = '*';
 ?>
 
 <?php if($this->LogoOAA == 'true') { ?>
-<!--img align="right" width=130px height=66px src=<?php //echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/logo-oaa.png" ;?>-->
-<img align="right" width=130px height=66px src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/logo-oaa.png")) ;?>>
+<img align="right" width=130px height=66px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/logo-oaa.png" ;?>>
+<!--img align="right" width=130px height=66px src=<?php //echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/logo-oaa.png")) ;?>-->
 <?php } ?>
 </td>
 </tr>
@@ -389,8 +411,9 @@ acreditaci&oacute;n del OAA.<br>
 <p align="right">Buenos Aires, Argentina - <?php echo date("d-m-Y"); ?></p>
 <?php if ($this->firmado == 'true'){ ?>
 <p align="right">
-<img width=117px height=121px src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/firma-luis.png")); ?>></p>
-<!--img width=117px height=121px src=<?php //echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/firma-luis.png"; ?>-->
+<!--img width=117px height=121px src=<?php //echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/firma-luis.png")); ?>-->
+<img width=117px height=121px src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/firma-luis.png"; ?>>
+</p>
 <p class="firma" align="right">Dr. LUIS O. MORENO <br /> Instituto Qu&iacute;mico Argentino S.A. <br /> Director T&eacute;cnico
 <?php } ?>
 </td>
@@ -399,11 +422,11 @@ acreditaci&oacute;n del OAA.<br>
 </table>
 </section>
 <footer>
-<table class="tablasinborde" border="0" cellpadding="0" cellspacing="0">
+<table class="tabla-header" border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td>
-<!--img width=563px height=62px src=<?php //echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/footer.png" ?>-->
-<img src=<?php echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/footer.png")); ?>>
+<img src=<?php echo "http://".$_SERVER['SERVER_ADDR']."/siga2/assets/images/footer.png" ?>>
+<!--img src=<?php // echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/footer.png")); ?>-->
 </td>
 </tr>
 </table>
@@ -423,7 +446,7 @@ if($_GET['format']=='pdf'){
     header("Expires: 0");
     header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
     header("Content-Disposition: attachment; filename=".$this->lblOrdenesTrabajoId->Text.".pdf");
-    passthru('wkhtmltopdf '.$this->lblOrdenesTrabajoId->Text.'.html '.$this->lblOrdenesTrabajoId->Text.'.pdf');
+    passthru('wkhtmltopdf -s A4 '.$this->lblOrdenesTrabajoId->Text.'.html '.$this->lblOrdenesTrabajoId->Text.'.pdf');
     $f = file_get_contents($this->lblOrdenesTrabajoId->Text.'.pdf');
     echo $f;
     #unlink($this->lblOrdenesTrabajoId->Text.'.html');
