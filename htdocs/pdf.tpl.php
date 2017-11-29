@@ -109,7 +109,10 @@ section{margin-left: 0; margin-right:0}
 }
 .tabla_datos td {padding:4px; border: thin solid #999;}
 .tabla_datos th {font-weight: bold; text-transform: uppercase; padding:4px; border: 1px solid #999;}
- 
+.linea-fin {
+	border-top: 1px solid #8c8b8b;
+	border-bottom: 1px solid #fff;
+} 
 </style>
 <?php  }?>
 </head>
@@ -406,9 +409,12 @@ acreditaci&oacute;n del OAA.<br>
 <table class="tablasinborde" border="0" cellpadding="0" cellspacing="0"  >
 <tr>
 <td>
+<p><strong>El tiempo de conservación de las muestras será de: 3 (tres) meses</strong></p>
 <p align="right"><strong>Fecha de emisi&oacute;n del informe de ensayo</strong></p>
 <p align="right">Lugar y Fecha</p>
 <p align="right">Buenos Aires, Argentina - <?php echo date("d-m-Y"); ?></p>
+<hr class=linea-fin />
+<p align="right">Fin del Informe</p>
 <?php if ($this->firmado == 'true'){ ?>
 <p align="right">
 <!--img width=117px height=121px src=<?php //echo 'data:image/png;base64,'.base64_encode(file_get_contents("/var/www/html/siga2/assets/images/firma-luis.png")); ?>-->
