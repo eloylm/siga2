@@ -190,11 +190,11 @@
     </tr>
 </table></td>
     </tr>
-    <tr>
+    <!--tr>
       <td>
       Condici&oacute;n de la muestra</td>
-      <td align="right"><?php $this->lblObservaciones->Render(); ?></td>
-    </tr>
+      <td align="right"><?php /*$this->lblObservaciones->Render();*/ ?></td>
+    </tr-->
     <tr>
       <td>Fecha ingreso muestra</td>
       <td align="right"><?php $this->lblFechaEntrada->Render(); ?></td>
@@ -245,7 +245,8 @@ aprobaci&oacute;n escrita del
 laboratorio.<br></p>
 <p>Nota 3: Las opiniones, interpretaciones, etc. que se indican a
 continuaci&oacute;n est&aacute;n fuera del alcance de la
-acreditaci&oacute;n del OAA.<br>
+acreditaci&oacute;n del OAA.</p>
+<p>Nota 4: Los resultados aplican a la muestra tal como se recibió<br>
 </strong></p>
 
 <table class=tabla_datos style="width: 77%"  border="1" cellpadding="0" cellspacing="0">
