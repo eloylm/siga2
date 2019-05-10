@@ -297,7 +297,7 @@ acreditaci&oacute;n del OAA.</p>
 </table>
 <p><strong>El tiempo de conservación de las muestras será de: 3 (tres) meses</strong></p>
 <p>&nbsp;</p>
-<p><strong>Fecha de emisi&oacute;n del infome de ensayo</strong></p>
+<p><strong>Fecha de emisi&oacute;n del informe de ensayo</strong></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>Lugar y Fecha</p>
