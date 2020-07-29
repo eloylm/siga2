@@ -17,6 +17,13 @@
         }
     ?>
 </div>
+
+<p align="right">
+<?php
+ if($_SESSION['UsuarioRol']=='responsablemuestras')  {
+    $_CONTROL->btnAnular->Render();
+ }?>
+&nbsp;
 <table width="60%" border="0" cellpadding="0" cellspacing="1" id="table3">
   <tr class="select">
     <td><div class="etiqueta" align="right">Nro de Orden:</div></td>
@@ -52,6 +59,11 @@
 <?php $_CONTROL->dtgResultados->Render(); ?>
 <p>&nbsp;
 <p align="right">
+<?php
+ if($_SESSION['UsuarioRol']=='responsablemuestras')  {
+   // $_CONTROL->btnAnular->Render();
+ }?>
+&nbsp;
 <?php
  if($_SESSION['UsuarioRol']=='directortecnico')  {
     $_CONTROL->btnFirmar->Render();

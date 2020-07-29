@@ -26,6 +26,7 @@ class AnalisisResultadosPanel extends QPanel {
     public $dtrOrdenesTrabajo;
     public $btnCongelar;
     public $btnFirmar;
+    public $btnAnular;
 
     public $lblOrdenesTrabajoId;
     public $lblFechaEntrada;
@@ -94,6 +95,12 @@ class AnalisisResultadosPanel extends QPanel {
         $this->btnFirmar->Text = 'Firmar OT';
         $this->btnFirmar->AddAction(new QClickEvent(), new QAjaxControlAction($this, 'btnFirmar_Click'));
         $this->btnFirmar->Enabled = false;
+        
+	$this->btnAnular = new QButton($this);
+        $this->btnAnular->Name = 'Anular';
+        $this->btnAnular->Text = 'Anular OT';
+        $this->btnAnular->AddAction(new QClickEvent(), new QAjaxControlAction($this, 'btnAnular_Click'));
+        $this->btnAnular->Enabled = true;
 
         $this->dtgResultados = new QFilteredDataGrid($this, 'dtgResultados');
         $this->dtgResultados->FilterShow=true;
@@ -459,6 +466,14 @@ class AnalisisResultadosPanel extends QPanel {
     public function btnFirmar_Click($strFormId, $strControlId, $strParameter) {
         $objOrdenes = OrdenesTrabajo::LoadByOrdenesTrabajoId(QApplication::QueryString('intOrdenesTrabajoId'));
         $objOrdenes->Estado = 'Firmado';
+        $objOrdenes->Save();
+
+        $this->CloseSelf(true);
+    }
+    
+public function btnAnular_Click($strFormId, $strControlId, $strParameter) {
+        $objOrdenes = OrdenesTrabajo::LoadByOrdenesTrabajoId(QApplication::QueryString('intOrdenesTrabajoId'));
+        $objOrdenes->Estado = 'ANULADA';
         $objOrdenes->Save();
 
         $this->CloseSelf(true);
