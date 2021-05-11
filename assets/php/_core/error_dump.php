@@ -14,12 +14,15 @@
 	 *	$__exc_strRenderedPage
 	 *  $__exc_objErrorAttributeArray
 	 */
-
 	$__exc_strMessageBody = htmlentities($__exc_strMessage);
 	$__exc_strMessageBody = str_replace(" ", "&nbsp;", str_replace("\n", "<br/>\n", $__exc_strMessageBody));
 	$__exc_strMessageBody = str_replace(":&nbsp;", ": ", $__exc_strMessageBody);
-	$__exc_objFileArray = file($__exc_strFilename);
-?>
+	
+	/*if(isset($__exc_strFilename))
+		$__exc_objFileArray = file($__exc_strFilename);
+	else*/
+		$__exc_objFileArray = file('/var/log/error_log_php_default.log');
+	?>
 <html>
 	<head>
 		<title>PHP <?php _p($__exc_strType); ?> - <?php _p($__exc_strMessage); ?></title>

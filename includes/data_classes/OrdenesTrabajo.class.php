@@ -80,11 +80,31 @@
 					// First checking for Optimistic Locking constraints (if applicable)
 
 					// Perform the UPDATE query
-					$objDatabase->NonQuery('
+					/*$objDatabase->NonQuery('
 						UPDATE
 							"ordenes_trabajo"
 						SET
 							"fecha_entrada" = ' . $objDatabase->SqlVariable($this->dttFechaEntrada) . ',
+							"clientes_id" = ' . $objDatabase->SqlVariable($this->intClientesId) . ',
+							"cargador" = ' . $objDatabase->SqlVariable($this->strCargador) . ',
+							"buque" = ' . $objDatabase->SqlVariable($this->strBuque) . ',
+							"kg" = ' . $objDatabase->SqlVariable($this->intKg) . ',
+							"puerto" = ' . $objDatabase->SqlVariable($this->strPuerto) . ',
+							"referencia_cliente" = ' . $objDatabase->SqlVariable($this->strReferenciaCliente) . ',
+							"destino" = ' . $objDatabase->SqlVariable($this->strDestino) . ',
+							"muestras_id" = ' . $objDatabase->SqlVariable($this->intMuestrasId) . ',
+							"usuarios_id" = ' . $objDatabase->SqlVariable($this->intUsuariosId) . ',
+							"new" = ' . $objDatabase->SqlVariable($this->blnNew) . ',
+							"estado" = ' . $objDatabase->SqlVariable($this->strEstado) . ',
+							"observaciones" = ' . $objDatabase->SqlVariable($this->strObservaciones) . ',
+                                                        "fecha_finalizado" = ' . $objDatabase->SqlVariable($this->dttFechaFinalizado) . '
+						WHERE
+							"ordenes_trabajo_id" = ' . $objDatabase->SqlVariable($this->intOrdenesTrabajoId) . '
+					');*/
+					$objDatabase->NonQuery('
+						UPDATE
+							"ordenes_trabajo"
+						SET
 							"clientes_id" = ' . $objDatabase->SqlVariable($this->intClientesId) . ',
 							"cargador" = ' . $objDatabase->SqlVariable($this->strCargador) . ',
 							"buque" = ' . $objDatabase->SqlVariable($this->strBuque) . ',

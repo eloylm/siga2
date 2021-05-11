@@ -20,7 +20,8 @@
   </script>
 <style type="text/css">
     div#datos{  
-      
+	width:21cm;
+	height:29.7cm;      
     }
     div#logo{
         width:100%;
