@@ -13,7 +13,7 @@
 	 * overriding existing or implementing new methods, properties and variables
 	 * in the Muestras class.
 	 * 
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage GeneratedDataObjects
 	 * @property-read integer $MuestrasId the value for intMuestrasId (Read-Only PK)
 	 * @property string $Detalle the value for strDetalle 

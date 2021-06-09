@@ -13,7 +13,7 @@
 	 * overriding existing or implementing new methods, properties and variables
 	 * in the Usuarios class.
 	 * 
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage GeneratedDataObjects
 	 * @property-read integer $UsuariosId the value for intUsuariosId (Read-Only PK)
 	 * @property string $Usuario the value for strUsuario (Unique)

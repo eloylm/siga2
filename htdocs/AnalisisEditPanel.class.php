@@ -24,6 +24,8 @@
 		public $txtNombre;
 		public $txtTiempoDemora;
 
+		public $txtGrupo;
+
 		// Other ListBoxes (if applicable) via Unique ReverseReferences and ManyToMany References
 		public $lstMetodoses;
 		public $lstOrdenesTrabajos;
@@ -58,6 +60,9 @@
 			$this->lblAnalisisId = $this->mctAnalisis->lblAnalisisId_Create();
 			$this->txtNombre = $this->mctAnalisis->txtNombre_Create();
 			$this->txtTiempoDemora = $this->mctAnalisis->txtTiempoDemora_Create();
+			
+			$this->txtGrupo = $this->mctAnalisis->txtGrupo_Create();
+			
 			$this->lstMetodoses = $this->mctAnalisis->lstMetodoses_Create();
 			//$this->lstOrdenesTrabajos = $this->mctAnalisis->lstOrdenesTrabajos_Create();
 			$this->lstUnidadeses = $this->mctAnalisis->lstUnidadeses_Create();

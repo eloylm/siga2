@@ -13,7 +13,7 @@
 	 * overriding existing or implementing new methods, properties and variables
 	 * in the Roles class.
 	 * 
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage GeneratedDataObjects
 	 * @property-read integer $RolesId the value for intRolesId (Read-Only PK)
 	 * @property string $Descrip the value for strDescrip 

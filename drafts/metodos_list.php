@@ -15,7 +15,7 @@
 	 * permanent changes, it is STRONGLY RECOMMENDED to move both metodos_list.php AND
 	 * metodos_list.tpl.php out of this Form Drafts directory.
 	 *
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage Drafts
 	 */
 	class MetodosListForm extends QForm {

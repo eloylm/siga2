@@ -12,7 +12,7 @@
      * Any and all changes to this file will be overwritten with any subsequent re-
      * code generation.
      *
-     * @package My Application
+     * @package SIGA
      * @subpackage MetaControls
      *
      */
@@ -278,6 +278,7 @@
 				case 'AnalisisId': return QQN::Analisis()->AnalisisId;
 				case 'Nombre': return QQN::Analisis()->Nombre;
 				case 'TiempoDemora': return QQN::Analisis()->TiempoDemora;
+				case 'Grupo': return QQN::Analisis()->Grupo;
 				default: throw new QCallerException('Simple Property not found in AnalisisDataGrid content: ' . $mixContent);
 			} else if ($mixContent instanceof QQAssociationNode)
 				throw new QCallerException('Content QQNode cannot go through any "To Many" association nodes.');

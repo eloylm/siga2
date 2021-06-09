@@ -13,7 +13,7 @@
 	 * Any and all changes to this file will be overwritten with any subsequent re-
 	 * code generation.
 	 * 
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage Drafts
 	 * 
 	 */
@@ -68,6 +68,7 @@
 			$this->dtgAnalisises->MetaAddColumn('AnalisisId');
 			$this->dtgAnalisises->MetaAddColumn('Nombre');
 			$this->dtgAnalisises->MetaAddColumn('TiempoDemora');
+			$this->dtgAnalisises->MetaAddColumn('Grupo');
 
 			// Setup the Create New button
 			$this->btnCreateNew = new QButton($this);

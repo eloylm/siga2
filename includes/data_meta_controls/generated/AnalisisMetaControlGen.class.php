@@ -13,7 +13,7 @@
 	 * Any and all changes to this file will be overwritten with any subsequent
 	 * code re-generation.
 	 * 
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage MetaControls
 	 * property-read Analisis $Analisis the actual Analisis data class being edited
 	 * property QLabel $AnalisisIdControl
@@ -22,6 +22,8 @@
 	 * property-read QLabel $NombreLabel
 	 * property QIntegerTextBox $TiempoDemoraControl
 	 * property-read QLabel $TiempoDemoraLabel
+	 * property QIntegerTextBox $GrupoControl
+	 * property-read QLabel $GrupoLabel
 	 * property QListBox $MetodosControl
 	 * property-read QLabel $MetodosLabel
 	 * property QListBox $OrdenesTrabajoControl
@@ -43,10 +45,12 @@
 		protected $lblAnalisisId;
 		protected $txtNombre;
 		protected $txtTiempoDemora;
+		protected $txtGrupo;
 
 		// Controls that allow the viewing of Analisis's individual data fields
 		protected $lblNombre;
 		protected $lblTiempoDemora;
+		protected $lblGrupo;
 
 		// QListBox Controls (if applicable) to edit Unique ReverseReferences and ManyToMany References
 		protected $lstMetodoses;
@@ -217,6 +221,32 @@
 		}
 
 		/**
+		 * Create and setup QIntegerTextBox txtGrupo
+		 * @param string $strControlId optional ControlId to use
+		 * @return QIntegerTextBox
+		 */
+		public function txtGrupo_Create($strControlId = null) {
+			$this->txtGrupo = new QIntegerTextBox($this->objParentObject, $strControlId);
+			$this->txtGrupo->Name = QApplication::Translate('Grupo');
+			$this->txtGrupo->Text = $this->objAnalisis->Grupo;
+			return $this->txtGrupo;
+		}
+
+		/**
+		 * Create and setup QLabel lblGrupo
+		 * @param string $strControlId optional ControlId to use
+		 * @param string $strFormat optional sprintf format to use
+		 * @return QLabel
+		 */
+		public function lblGrupo_Create($strControlId = null, $strFormat = null) {
+			$this->lblGrupo = new QLabel($this->objParentObject, $strControlId);
+			$this->lblGrupo->Name = QApplication::Translate('Grupo');
+			$this->lblGrupo->Text = $this->objAnalisis->Grupo;
+			$this->lblGrupo->Format = $strFormat;
+			return $this->lblGrupo;
+		}
+
+		/**
 		 * Create and setup QListBox lstMetodoses
 		 * @param string $strControlId optional ControlId to use
 		 * @return QListBox
@@ -358,6 +388,9 @@
 			if ($this->txtTiempoDemora) $this->txtTiempoDemora->Text = $this->objAnalisis->TiempoDemora;
 			if ($this->lblTiempoDemora) $this->lblTiempoDemora->Text = $this->objAnalisis->TiempoDemora;
 
+			if ($this->txtGrupo) $this->txtGrupo->Text = $this->objAnalisis->Grupo;
+			if ($this->lblGrupo) $this->lblGrupo->Text = $this->objAnalisis->Grupo;
+
 			if ($this->lstMetodoses) {
 				$this->lstMetodoses->RemoveAllItems();
 				$objAssociatedArray = $this->objAnalisis->GetMetodosArray();
@@ -476,6 +509,7 @@
 				// Update any fields for controls that have been created
 				if ($this->txtNombre) $this->objAnalisis->Nombre = $this->txtNombre->Text;
 				if ($this->txtTiempoDemora) $this->objAnalisis->TiempoDemora = $this->txtTiempoDemora->Text;
+				if ($this->txtGrupo) $this->objAnalisis->Grupo = $this->txtGrupo->Text;
 
 				// Update any UniqueReverseReferences (if any) for controls that have been created for it
 
@@ -542,6 +576,12 @@
 				case 'TiempoDemoraLabel':
 					if (!$this->lblTiempoDemora) return $this->lblTiempoDemora_Create();
 					return $this->lblTiempoDemora;
+				case 'GrupoControl':
+					if (!$this->txtGrupo) return $this->txtGrupo_Create();
+					return $this->txtGrupo;
+				case 'GrupoLabel':
+					if (!$this->lblGrupo) return $this->lblGrupo_Create();
+					return $this->lblGrupo;
 				case 'MetodosControl':
 					if (!$this->lstMetodoses) return $this->lstMetodoses_Create();
 					return $this->lstMetodoses;
@@ -588,6 +628,8 @@
 						return ($this->txtNombre = QType::Cast($mixValue, 'QControl'));
 					case 'TiempoDemoraControl':
 						return ($this->txtTiempoDemora = QType::Cast($mixValue, 'QControl'));
+					case 'GrupoControl':
+						return ($this->txtGrupo = QType::Cast($mixValue, 'QControl'));
 					case 'MetodosControl':
 						return ($this->lstMetodoses = QType::Cast($mixValue, 'QControl'));
 					case 'OrdenesTrabajoControl':

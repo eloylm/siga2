@@ -13,7 +13,7 @@
 	 * Any and all changes to this file will be overwritten with any subsequent
 	 * code re-generation.
 	 * 
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage MetaControls
 	 * property-read UsuariosAnalisis $UsuariosAnalisis the actual UsuariosAnalisis data class being edited
 	 * property QListBox $UsuariosIdControl

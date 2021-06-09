@@ -13,7 +13,7 @@
 	 * overriding existing or implementing new methods, properties and variables
 	 * in the Clientes class.
 	 * 
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage GeneratedDataObjects
 	 * @property-read integer $ClientesId the value for intClientesId (Read-Only PK)
 	 * @property string $Nombre the value for strNombre 
@@ -687,6 +687,38 @@
 		public static function LoadByClientesId($intClientesId) {
 			return Clientes::QuerySingle(
 				QQ::Equal(QQN::Clientes()->ClientesId, $intClientesId)
+			);
+		}
+			
+		/**
+		 * Load an array of Clientes objects,
+		 * by Nombre Index(es)
+		 * @param string $strNombre
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return Clientes[]
+		*/
+		public static function LoadArrayByNombre($strNombre, $objOptionalClauses = null) {
+			// Call Clientes::QueryArray to perform the LoadArrayByNombre query
+			try {
+				return Clientes::QueryArray(
+					QQ::Equal(QQN::Clientes()->Nombre, $strNombre),
+					$objOptionalClauses);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+		}
+
+		/**
+		 * Count Clienteses
+		 * by Nombre Index(es)
+		 * @param string $strNombre
+		 * @return int
+		*/
+		public static function CountByNombre($strNombre) {
+			// Call Clientes::QueryCount to perform the CountByNombre query
+			return Clientes::QueryCount(
+				QQ::Equal(QQN::Clientes()->Nombre, $strNombre)
 			);
 		}
 

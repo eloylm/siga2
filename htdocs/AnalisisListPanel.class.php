@@ -77,7 +77,12 @@
                         $nombre->FilterBoxSize=25;
                         
 			$this->dtgAnalisises->MetaAddColumn('TiempoDemora');
-
+			$grupo = $this->dtgAnalisises->MetaAddColumn('Grupo');
+			$grupo->Filter=(QQ::ILike(QQN::Analisis()->Grupo, null));
+                        $grupo->FilterPrefix = '%';
+                        $grupo->FilterPostfix = '%';
+                        $grupo->FilterBoxSize=15;
+	
 			// Setup the Create New button
 			$this->btnCreateNew = new QButton($this);
 			$this->btnCreateNew->Text = QApplication::Translate('Create New') . ' ' . QApplication::Translate('Ensayo');

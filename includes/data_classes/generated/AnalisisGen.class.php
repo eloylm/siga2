@@ -13,11 +13,12 @@
 	 * overriding existing or implementing new methods, properties and variables
 	 * in the Analisis class.
 	 * 
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage GeneratedDataObjects
 	 * @property-read integer $AnalisisId the value for intAnalisisId (Read-Only PK)
 	 * @property string $Nombre the value for strNombre 
 	 * @property integer $TiempoDemora the value for intTiempoDemora 
+	 * @property integer $Grupo the value for intGrupo 
 	 * @property-read Metodos $_Metodos the value for the private _objMetodos (Read-Only) if set due to an expansion on the analisis_metodos_assn association table
 	 * @property-read Metodos[] $_MetodosArray the value for the private _objMetodosArray (Read-Only) if set due to an ExpandAsArray on the analisis_metodos_assn association table
 	 * @property-read OrdenesTrabajo $_OrdenesTrabajo the value for the private _objOrdenesTrabajo (Read-Only) if set due to an expansion on the analisis_ordenes_trabajo_assn association table
@@ -58,6 +59,14 @@
 		 */
 		protected $intTiempoDemora;
 		const TiempoDemoraDefault = null;
+
+
+		/**
+		 * Protected member variable that maps to the database column analisis.grupo
+		 * @var integer intGrupo
+		 */
+		protected $intGrupo;
+		const GrupoDefault = null;
 
 
 		/**
@@ -449,6 +458,7 @@
 			$objBuilder->AddSelectItem($strTableName, 'analisis_id', $strAliasPrefix . 'analisis_id');
 			$objBuilder->AddSelectItem($strTableName, 'nombre', $strAliasPrefix . 'nombre');
 			$objBuilder->AddSelectItem($strTableName, 'tiempo_demora', $strAliasPrefix . 'tiempo_demora');
+			$objBuilder->AddSelectItem($strTableName, 'grupo', $strAliasPrefix . 'grupo');
 		}
 
 
@@ -591,6 +601,8 @@
 			$objToReturn->strNombre = $objDbRow->GetColumn($strAliasName, 'VarChar');
 			$strAliasName = array_key_exists($strAliasPrefix . 'tiempo_demora', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'tiempo_demora'] : $strAliasPrefix . 'tiempo_demora';
 			$objToReturn->intTiempoDemora = $objDbRow->GetColumn($strAliasName, 'Integer');
+			$strAliasName = array_key_exists($strAliasPrefix . 'grupo', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'grupo'] : $strAliasPrefix . 'grupo';
+			$objToReturn->intGrupo = $objDbRow->GetColumn($strAliasName, 'Integer');
 
 			if (isset($arrPreviousItems) && is_array($arrPreviousItems)) {
 				foreach ($arrPreviousItems as $objPreviousItem) {
@@ -737,6 +749,38 @@
 				QQ::Equal(QQN::Analisis()->AnalisisId, $intAnalisisId)
 			);
 		}
+			
+		/**
+		 * Load an array of Analisis objects,
+		 * by Nombre Index(es)
+		 * @param string $strNombre
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return Analisis[]
+		*/
+		public static function LoadArrayByNombre($strNombre, $objOptionalClauses = null) {
+			// Call Analisis::QueryArray to perform the LoadArrayByNombre query
+			try {
+				return Analisis::QueryArray(
+					QQ::Equal(QQN::Analisis()->Nombre, $strNombre),
+					$objOptionalClauses);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+		}
+
+		/**
+		 * Count Analisises
+		 * by Nombre Index(es)
+		 * @param string $strNombre
+		 * @return int
+		*/
+		public static function CountByNombre($strNombre) {
+			// Call Analisis::QueryCount to perform the CountByNombre query
+			return Analisis::QueryCount(
+				QQ::Equal(QQN::Analisis()->Nombre, $strNombre)
+			);
+		}
 
 
 
@@ -862,10 +906,12 @@
 					$objDatabase->NonQuery('
 						INSERT INTO "analisis" (
 							"nombre",
-							"tiempo_demora"
+							"tiempo_demora",
+							"grupo"
 						) VALUES (
 							' . $objDatabase->SqlVariable($this->strNombre) . ',
-							' . $objDatabase->SqlVariable($this->intTiempoDemora) . '
+							' . $objDatabase->SqlVariable($this->intTiempoDemora) . ',
+							' . $objDatabase->SqlVariable($this->intGrupo) . '
 						)
 					');
 
@@ -882,7 +928,8 @@
 							"analisis"
 						SET
 							"nombre" = ' . $objDatabase->SqlVariable($this->strNombre) . ',
-							"tiempo_demora" = ' . $objDatabase->SqlVariable($this->intTiempoDemora) . '
+							"tiempo_demora" = ' . $objDatabase->SqlVariable($this->intTiempoDemora) . ',
+							"grupo" = ' . $objDatabase->SqlVariable($this->intGrupo) . '
 						WHERE
 							"analisis_id" = ' . $objDatabase->SqlVariable($this->intAnalisisId) . '
 					');
@@ -963,6 +1010,7 @@
 			// Update $this's local variables to match
 			$this->strNombre = $objReloaded->strNombre;
 			$this->intTiempoDemora = $objReloaded->intTiempoDemora;
+			$this->intGrupo = $objReloaded->intGrupo;
 		}
 
 
@@ -1003,6 +1051,13 @@
 					 * @return integer
 					 */
 					return $this->intTiempoDemora;
+
+				case 'Grupo':
+					/**
+					 * Gets the value for intGrupo 
+					 * @return integer
+					 */
+					return $this->intGrupo;
 
 
 				///////////////////
@@ -1142,6 +1197,19 @@
 					 */
 					try {
 						return ($this->intTiempoDemora = QType::Cast($mixValue, QType::Integer));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
+				case 'Grupo':
+					/**
+					 * Sets the value for intGrupo 
+					 * @param integer $mixValue
+					 * @return integer
+					 */
+					try {
+						return ($this->intGrupo = QType::Cast($mixValue, QType::Integer));
 					} catch (QCallerException $objExc) {
 						$objExc->IncrementOffset();
 						throw $objExc;
@@ -1857,6 +1925,7 @@
 			$strToReturn .= '<element name="AnalisisId" type="xsd:int"/>';
 			$strToReturn .= '<element name="Nombre" type="xsd:string"/>';
 			$strToReturn .= '<element name="TiempoDemora" type="xsd:int"/>';
+			$strToReturn .= '<element name="Grupo" type="xsd:int"/>';
 			$strToReturn .= '<element name="__blnRestored" type="xsd:boolean"/>';
 			$strToReturn .= '</sequence></complexType>';
 			return $strToReturn;
@@ -1885,6 +1954,8 @@
 				$objToReturn->strNombre = $objSoapObject->Nombre;
 			if (property_exists($objSoapObject, 'TiempoDemora'))
 				$objToReturn->intTiempoDemora = $objSoapObject->TiempoDemora;
+			if (property_exists($objSoapObject, 'Grupo'))
+				$objToReturn->intGrupo = $objSoapObject->Grupo;
 			if (property_exists($objSoapObject, '__blnRestored'))
 				$objToReturn->__blnRestored = $objSoapObject->__blnRestored;
 			return $objToReturn;
@@ -2010,6 +2081,8 @@
 					return new QQNode('nombre', 'Nombre', 'string', $this);
 				case 'TiempoDemora':
 					return new QQNode('tiempo_demora', 'TiempoDemora', 'integer', $this);
+				case 'Grupo':
+					return new QQNode('grupo', 'Grupo', 'integer', $this);
 				case 'Metodos':
 					return new QQNodeAnalisisMetodos($this);
 				case 'OrdenesTrabajo':
@@ -2046,6 +2119,8 @@
 					return new QQNode('nombre', 'Nombre', 'string', $this);
 				case 'TiempoDemora':
 					return new QQNode('tiempo_demora', 'TiempoDemora', 'integer', $this);
+				case 'Grupo':
+					return new QQNode('grupo', 'Grupo', 'integer', $this);
 				case 'Metodos':
 					return new QQNodeAnalisisMetodos($this);
 				case 'OrdenesTrabajo':

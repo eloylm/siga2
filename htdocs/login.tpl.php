@@ -1,5 +1,5 @@
 <?php require(__INCLUDES__ . '/header.inc.php'); ?>
-<div id="middlebar"><h2>SIGA - Sistema de Gesti&oacute;n de An&aacute;lisis - V2.0</h2></div>
+<div id="middlebar"><h2>DEV!!!!!!!SIGA - Sistema de Gesti&oacute;n de An&aacute;lisis - V2.0</h2></div>
 <div id="login">
     <?php $this->RenderBegin() ?>
     <p>

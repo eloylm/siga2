@@ -57,8 +57,8 @@
 			 *		__VIRTUAL_DIRECTORY__ is defined as '/~my_user'
 			 *		__SUBDIRECTORY__ is defined as '/qcubed'
 			 */
-			define ('__DOCROOT__', '/var/www/html/siga2');
-			define ('__VIRTUAL_DIRECTORY__', '/siga2');
+			define ('__DOCROOT__', '/var/www/html/devsiga');
+			define ('__VIRTUAL_DIRECTORY__', '/devsiga');
 			define ('__SUBDIRECTORY__', '');
 
 
@@ -168,7 +168,7 @@
 				'adapter' => 'PostgreSql',
 				'server' => 'localhost',
 				'port' => 5432,
-				'database' => 'siga',
+				'database' => 'devsiga',
 				'username' => 'postgres',
 				'password' => 'postgres',
 				'profiling' => false)));

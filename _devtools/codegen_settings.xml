@@ -6,7 +6,7 @@
 	this one to use.  Feel free to copy, modify, etc.
 -->
 	<!-- General CodeGen Settings -->
-	<name application="My Application"/>
+	<name application="SIGA"/>
 	<templateEscape begin="&lt;%" end="%&gt;"/>
 
 	<!-- Define Data Sources (e.g. Databases, Services, etc.) -->

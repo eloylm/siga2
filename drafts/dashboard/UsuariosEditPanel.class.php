@@ -12,7 +12,7 @@
 	 * permanent changes, it is STRONGLY RECOMMENDED to move both usuarios_edit.php AND
 	 * usuarios_edit.tpl.php out of this Form Drafts directory.
 	 *
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage Drafts
 	 */
 	class UsuariosEditPanel extends QPanel {

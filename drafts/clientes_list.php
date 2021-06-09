@@ -15,7 +15,7 @@
 	 * permanent changes, it is STRONGLY RECOMMENDED to move both clientes_list.php AND
 	 * clientes_list.tpl.php out of this Form Drafts directory.
 	 *
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage Drafts
 	 */
 	class ClientesListForm extends QForm {

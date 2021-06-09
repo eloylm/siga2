@@ -13,7 +13,7 @@
 	 * Any and all changes to this file will be overwritten with any subsequent
 	 * code re-generation.
 	 * 
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage MetaControls
 	 * property-read OrdenesTrabajo $OrdenesTrabajo the actual OrdenesTrabajo data class being edited
 	 * property QLabel $OrdenesTrabajoIdControl
@@ -229,7 +229,7 @@
 			$this->lblFechaEntrada = new QLabel($this->objParentObject, $strControlId);
 			$this->lblFechaEntrada->Name = QApplication::Translate('Fecha Entrada');
 			$this->strFechaEntradaDateTimeFormat = $strDateTimeFormat;
-			$this->lblFechaEntrada->Text = sprintf($this->objOrdenesTrabajo->FechaEntrada) ? $this->objOrdenesTrabajo->FechaEntrada->toString($this->strFechaEntradaDateTimeFormat) : null;
+			$this->lblFechaEntrada->Text = sprintf($this->objOrdenesTrabajo->FechaEntrada) ? $this->objOrdenesTrabajo->FechaEntrada->__toString($this->strFechaEntradaDateTimeFormat) : null;
 			return $this->lblFechaEntrada;
 		}
 
@@ -532,6 +532,7 @@
 			$this->txtObservaciones = new QTextBox($this->objParentObject, $strControlId);
 			$this->txtObservaciones->Name = QApplication::Translate('Observaciones');
 			$this->txtObservaciones->Text = $this->objOrdenesTrabajo->Observaciones;
+			$this->txtObservaciones->TextMode = QTextMode::MultiLine;
 			return $this->txtObservaciones;
 		}
 
@@ -632,7 +633,7 @@
 			if ($this->lblOrdenesTrabajoId) if ($this->blnEditMode) $this->lblOrdenesTrabajoId->Text = $this->objOrdenesTrabajo->OrdenesTrabajoId;
 
 			if ($this->calFechaEntrada) $this->calFechaEntrada->DateTime = $this->objOrdenesTrabajo->FechaEntrada;
-			if ($this->lblFechaEntrada) $this->lblFechaEntrada->Text = sprintf($this->objOrdenesTrabajo->FechaEntrada) ? $this->objOrdenesTrabajo->FechaEntrada->toString($this->strFechaEntradaDateTimeFormat) : null;
+			if ($this->lblFechaEntrada) $this->lblFechaEntrada->Text = sprintf($this->objOrdenesTrabajo->FechaEntrada) ? $this->objOrdenesTrabajo->FechaEntrada->__toString($this->strFechaEntradaDateTimeFormat) : null;
 
 			if ($this->lstClientes) {
 					$this->lstClientes->RemoveAllItems();

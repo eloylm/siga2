@@ -12,7 +12,7 @@
      * Any and all changes to this file will be overwritten with any subsequent re-
      * code generation.
      *
-     * @package My Application
+     * @package SIGA
      * @subpackage MetaControls
      *
      */

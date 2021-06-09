@@ -15,7 +15,7 @@
 	 * permanent changes, it is STRONGLY RECOMMENDED to move both usuarios_list.php AND
 	 * usuarios_list.tpl.php out of this Form Drafts directory.
 	 *
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage Drafts
 	 */
 	class UsuariosListForm extends QForm {

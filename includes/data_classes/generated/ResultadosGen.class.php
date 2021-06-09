@@ -13,7 +13,7 @@
 	 * overriding existing or implementing new methods, properties and variables
 	 * in the Resultados class.
 	 * 
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage GeneratedDataObjects
 	 * @property-read integer $ResultadosId the value for intResultadosId (Read-Only PK)
 	 * @property integer $OrdenesTrabajoId the value for intOrdenesTrabajoId 

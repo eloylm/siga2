@@ -13,7 +13,7 @@
 	 * overriding existing or implementing new methods, properties and variables
 	 * in the Unidades class.
 	 * 
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage GeneratedDataObjects
 	 * @property-read integer $UnidadId the value for intUnidadId (Read-Only PK)
 	 * @property string $Nombre the value for strNombre (Not Null)

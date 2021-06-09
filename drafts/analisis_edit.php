@@ -15,7 +15,7 @@
 	 * permanent changes, it is STRONGLY RECOMMENDED to move both analisis_edit.php AND
 	 * analisis_edit.tpl.php out of this Form Drafts directory.
 	 *
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage Drafts
 	 */
 	class AnalisisEditForm extends QForm {
@@ -26,6 +26,7 @@
 		protected $lblAnalisisId;
 		protected $txtNombre;
 		protected $txtTiempoDemora;
+		protected $txtGrupo;
 
 		// Other ListBoxes (if applicable) via Unique ReverseReferences and ManyToMany References
 		protected $lstMetodoses;
@@ -58,6 +59,7 @@
 			$this->lblAnalisisId = $this->mctAnalisis->lblAnalisisId_Create();
 			$this->txtNombre = $this->mctAnalisis->txtNombre_Create();
 			$this->txtTiempoDemora = $this->mctAnalisis->txtTiempoDemora_Create();
+			$this->txtGrupo = $this->mctAnalisis->txtGrupo_Create();
 			$this->lstMetodoses = $this->mctAnalisis->lstMetodoses_Create();
 			$this->lstOrdenesTrabajos = $this->mctAnalisis->lstOrdenesTrabajos_Create();
 			$this->lstUnidadeses = $this->mctAnalisis->lstUnidadeses_Create();

@@ -9,7 +9,7 @@
 <!-- Start Qcubed -->
 
 <div id="titleBar">
-    <h2>SIGA - Sistema de Gesti&oacute;n de An&aacute;lisis</h2><?php //echo $_SESSION['UsuarioRol']; ?>
+    <h2>DEV!!!!!!!!SIGA - Sistema de Gesti&oacute;n de An&aacute;lisis</h2><?php //echo $_SESSION['UsuarioRol']; ?>
     <div class="bienvenidos">Bienvenido <?php $this->lblNombreUsuario->Render(); ?></div>
 </div>
 <div id="middlebar">

@@ -10,6 +10,7 @@
 		<?php $_CONTROL->txtNombre->RenderWithName(); ?>
 
 		<?php $_CONTROL->txtTiempoDemora->RenderWithName(); ?>
+		<?php $_CONTROL->txtGrupo->RenderWithName(); ?>
             <div style="width:450px">
             
                 <div id="listMetodos">

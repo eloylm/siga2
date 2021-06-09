@@ -13,7 +13,7 @@
 	 * overriding existing or implementing new methods, properties and variables
 	 * in the OrdenesTrabajo class.
 	 * 
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage GeneratedDataObjects
 	 * @property-read integer $OrdenesTrabajoId the value for intOrdenesTrabajoId (Read-Only PK)
 	 * @property QDateTime $FechaEntrada the value for dttFechaEntrada 
@@ -660,7 +660,7 @@
 			$strAliasName = array_key_exists($strAliasPrefix . 'estado', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'estado'] : $strAliasPrefix . 'estado';
 			$objToReturn->strEstado = $objDbRow->GetColumn($strAliasName, 'VarChar');
 			$strAliasName = array_key_exists($strAliasPrefix . 'observaciones', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'observaciones'] : $strAliasPrefix . 'observaciones';
-			$objToReturn->strObservaciones = $objDbRow->GetColumn($strAliasName, 'VarChar');
+			$objToReturn->strObservaciones = $objDbRow->GetColumn($strAliasName, 'Blob');
 			$strAliasName = array_key_exists($strAliasPrefix . 'fecha_finalizado', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'fecha_finalizado'] : $strAliasPrefix . 'fecha_finalizado';
 			$objToReturn->dttFechaFinalizado = $objDbRow->GetColumn($strAliasName, 'Date');
 
@@ -882,6 +882,230 @@
 			// Call OrdenesTrabajo::QueryCount to perform the CountByUsuariosId query
 			return OrdenesTrabajo::QueryCount(
 				QQ::Equal(QQN::OrdenesTrabajo()->UsuariosId, $intUsuariosId)
+			);
+		}
+			
+		/**
+		 * Load an array of OrdenesTrabajo objects,
+		 * by Buque Index(es)
+		 * @param string $strBuque
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return OrdenesTrabajo[]
+		*/
+		public static function LoadArrayByBuque($strBuque, $objOptionalClauses = null) {
+			// Call OrdenesTrabajo::QueryArray to perform the LoadArrayByBuque query
+			try {
+				return OrdenesTrabajo::QueryArray(
+					QQ::Equal(QQN::OrdenesTrabajo()->Buque, $strBuque),
+					$objOptionalClauses);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+		}
+
+		/**
+		 * Count OrdenesTrabajos
+		 * by Buque Index(es)
+		 * @param string $strBuque
+		 * @return int
+		*/
+		public static function CountByBuque($strBuque) {
+			// Call OrdenesTrabajo::QueryCount to perform the CountByBuque query
+			return OrdenesTrabajo::QueryCount(
+				QQ::Equal(QQN::OrdenesTrabajo()->Buque, $strBuque)
+			);
+		}
+			
+		/**
+		 * Load an array of OrdenesTrabajo objects,
+		 * by Cargador Index(es)
+		 * @param string $strCargador
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return OrdenesTrabajo[]
+		*/
+		public static function LoadArrayByCargador($strCargador, $objOptionalClauses = null) {
+			// Call OrdenesTrabajo::QueryArray to perform the LoadArrayByCargador query
+			try {
+				return OrdenesTrabajo::QueryArray(
+					QQ::Equal(QQN::OrdenesTrabajo()->Cargador, $strCargador),
+					$objOptionalClauses);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+		}
+
+		/**
+		 * Count OrdenesTrabajos
+		 * by Cargador Index(es)
+		 * @param string $strCargador
+		 * @return int
+		*/
+		public static function CountByCargador($strCargador) {
+			// Call OrdenesTrabajo::QueryCount to perform the CountByCargador query
+			return OrdenesTrabajo::QueryCount(
+				QQ::Equal(QQN::OrdenesTrabajo()->Cargador, $strCargador)
+			);
+		}
+			
+		/**
+		 * Load an array of OrdenesTrabajo objects,
+		 * by Destino Index(es)
+		 * @param string $strDestino
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return OrdenesTrabajo[]
+		*/
+		public static function LoadArrayByDestino($strDestino, $objOptionalClauses = null) {
+			// Call OrdenesTrabajo::QueryArray to perform the LoadArrayByDestino query
+			try {
+				return OrdenesTrabajo::QueryArray(
+					QQ::Equal(QQN::OrdenesTrabajo()->Destino, $strDestino),
+					$objOptionalClauses);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+		}
+
+		/**
+		 * Count OrdenesTrabajos
+		 * by Destino Index(es)
+		 * @param string $strDestino
+		 * @return int
+		*/
+		public static function CountByDestino($strDestino) {
+			// Call OrdenesTrabajo::QueryCount to perform the CountByDestino query
+			return OrdenesTrabajo::QueryCount(
+				QQ::Equal(QQN::OrdenesTrabajo()->Destino, $strDestino)
+			);
+		}
+			
+		/**
+		 * Load an array of OrdenesTrabajo objects,
+		 * by FechaEntrada Index(es)
+		 * @param QDateTime $dttFechaEntrada
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return OrdenesTrabajo[]
+		*/
+		public static function LoadArrayByFechaEntrada($dttFechaEntrada, $objOptionalClauses = null) {
+			// Call OrdenesTrabajo::QueryArray to perform the LoadArrayByFechaEntrada query
+			try {
+				return OrdenesTrabajo::QueryArray(
+					QQ::Equal(QQN::OrdenesTrabajo()->FechaEntrada, $dttFechaEntrada),
+					$objOptionalClauses);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+		}
+
+		/**
+		 * Count OrdenesTrabajos
+		 * by FechaEntrada Index(es)
+		 * @param QDateTime $dttFechaEntrada
+		 * @return int
+		*/
+		public static function CountByFechaEntrada($dttFechaEntrada) {
+			// Call OrdenesTrabajo::QueryCount to perform the CountByFechaEntrada query
+			return OrdenesTrabajo::QueryCount(
+				QQ::Equal(QQN::OrdenesTrabajo()->FechaEntrada, $dttFechaEntrada)
+			);
+		}
+			
+		/**
+		 * Load an array of OrdenesTrabajo objects,
+		 * by Kg Index(es)
+		 * @param integer $intKg
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return OrdenesTrabajo[]
+		*/
+		public static function LoadArrayByKg($intKg, $objOptionalClauses = null) {
+			// Call OrdenesTrabajo::QueryArray to perform the LoadArrayByKg query
+			try {
+				return OrdenesTrabajo::QueryArray(
+					QQ::Equal(QQN::OrdenesTrabajo()->Kg, $intKg),
+					$objOptionalClauses);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+		}
+
+		/**
+		 * Count OrdenesTrabajos
+		 * by Kg Index(es)
+		 * @param integer $intKg
+		 * @return int
+		*/
+		public static function CountByKg($intKg) {
+			// Call OrdenesTrabajo::QueryCount to perform the CountByKg query
+			return OrdenesTrabajo::QueryCount(
+				QQ::Equal(QQN::OrdenesTrabajo()->Kg, $intKg)
+			);
+		}
+			
+		/**
+		 * Load an array of OrdenesTrabajo objects,
+		 * by Puerto Index(es)
+		 * @param string $strPuerto
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return OrdenesTrabajo[]
+		*/
+		public static function LoadArrayByPuerto($strPuerto, $objOptionalClauses = null) {
+			// Call OrdenesTrabajo::QueryArray to perform the LoadArrayByPuerto query
+			try {
+				return OrdenesTrabajo::QueryArray(
+					QQ::Equal(QQN::OrdenesTrabajo()->Puerto, $strPuerto),
+					$objOptionalClauses);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+		}
+
+		/**
+		 * Count OrdenesTrabajos
+		 * by Puerto Index(es)
+		 * @param string $strPuerto
+		 * @return int
+		*/
+		public static function CountByPuerto($strPuerto) {
+			// Call OrdenesTrabajo::QueryCount to perform the CountByPuerto query
+			return OrdenesTrabajo::QueryCount(
+				QQ::Equal(QQN::OrdenesTrabajo()->Puerto, $strPuerto)
+			);
+		}
+			
+		/**
+		 * Load an array of OrdenesTrabajo objects,
+		 * by ReferenciaCliente Index(es)
+		 * @param string $strReferenciaCliente
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return OrdenesTrabajo[]
+		*/
+		public static function LoadArrayByReferenciaCliente($strReferenciaCliente, $objOptionalClauses = null) {
+			// Call OrdenesTrabajo::QueryArray to perform the LoadArrayByReferenciaCliente query
+			try {
+				return OrdenesTrabajo::QueryArray(
+					QQ::Equal(QQN::OrdenesTrabajo()->ReferenciaCliente, $strReferenciaCliente),
+					$objOptionalClauses);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+		}
+
+		/**
+		 * Count OrdenesTrabajos
+		 * by ReferenciaCliente Index(es)
+		 * @param string $strReferenciaCliente
+		 * @return int
+		*/
+		public static function CountByReferenciaCliente($strReferenciaCliente) {
+			// Call OrdenesTrabajo::QueryCount to perform the CountByReferenciaCliente query
+			return OrdenesTrabajo::QueryCount(
+				QQ::Equal(QQN::OrdenesTrabajo()->ReferenciaCliente, $strReferenciaCliente)
 			);
 		}
 
@@ -2083,7 +2307,7 @@
 				case 'OrdenesTrabajoId':
 					return new QQNode('ordenes_trabajo_id', 'OrdenesTrabajoId', 'integer', $this);
 				case 'FechaEntrada':
-					return new QQNode('fecha_entrada', 'FechaEntrada', 'string', $this);
+					return new QQNode('fecha_entrada', 'FechaEntrada', 'QDateTime', $this);
 				case 'ClientesId':
 					return new QQNode('clientes_id', 'ClientesId', 'integer', $this);
 				case 'Clientes':

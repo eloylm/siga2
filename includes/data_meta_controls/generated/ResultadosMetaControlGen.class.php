@@ -13,7 +13,7 @@
 	 * Any and all changes to this file will be overwritten with any subsequent
 	 * code re-generation.
 	 * 
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage MetaControls
 	 * property-read Resultados $Resultados the actual Resultados data class being edited
 	 * property QLabel $ResultadosIdControl

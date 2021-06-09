@@ -191,11 +191,11 @@
     </tr>
 </table></td>
     </tr>
-    <!--tr>
+    <tr>
       <td>
       Condici&oacute;n de la muestra</td>
-      <td align="right"><?php /*$this->lblObservaciones->Render();*/ ?></td>
-    </tr-->
+      <td align="right"><?php $this->lblObservaciones->Render(); ?></td>
+    </tr>
     <tr>
       <td>Fecha ingreso muestra</td>
       <td align="right"><?php $this->lblFechaEntrada->Render(); ?></td>

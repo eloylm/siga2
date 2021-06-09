@@ -23,6 +23,8 @@
 
 		<?php $this->txtTiempoDemora->RenderWithName(); ?>
 
+		<?php $this->txtGrupo->RenderWithName(); ?>
+
 		<?php $this->lstMetodoses->RenderWithName(true, "Rows=7"); ?>
 
 		<?php $this->lstOrdenesTrabajos->RenderWithName(true, "Rows=7"); ?>

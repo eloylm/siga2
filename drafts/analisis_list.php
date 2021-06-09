@@ -15,7 +15,7 @@
 	 * permanent changes, it is STRONGLY RECOMMENDED to move both analisis_list.php AND
 	 * analisis_list.tpl.php out of this Form Drafts directory.
 	 *
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage Drafts
 	 */
 	class AnalisisListForm extends QForm {
@@ -58,6 +58,7 @@
 			$this->dtgAnalisises->MetaAddColumn('AnalisisId');
 			$this->dtgAnalisises->MetaAddColumn('Nombre');
 			$this->dtgAnalisises->MetaAddColumn('TiempoDemora');
+			$this->dtgAnalisises->MetaAddColumn('Grupo');
 		}
 	}
 

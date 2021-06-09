@@ -11,6 +11,8 @@
 
 		<?php $_CONTROL->txtTiempoDemora->RenderWithName(); ?>
 
+		<?php $_CONTROL->txtGrupo->RenderWithName(); ?>
+
 		<?php $_CONTROL->lstMetodoses->RenderWithName(true, "Rows=7"); ?>
 
 		<?php $_CONTROL->lstOrdenesTrabajos->RenderWithName(true, "Rows=7"); ?>

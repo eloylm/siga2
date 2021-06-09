@@ -13,7 +13,7 @@
 	 * overriding existing or implementing new methods, properties and variables
 	 * in the UsuariosAnalisis class.
 	 * 
-	 * @package My Application
+	 * @package SIGA
 	 * @subpackage GeneratedDataObjects
 	 * @property integer $UsuariosId the value for intUsuariosId (Not Null)
 	 * @property integer $AnalisisId the value for intAnalisisId (Not Null)
