@@ -38,6 +38,21 @@
 		// Override or Create New Load/Count methods
 		// (For obvious reasons, these methods are commented out...
 		// but feel free to use these as a starting point)
+		
+		public static function LoadbyGrupo($objOptionalClauses = null) {
+                        if (func_num_args() > 1) {
+                                throw new QCallerException("LoadAll must be called with an array of optional clauses as a single argument");
+                        }
+                        // Call Muestras::QueryArray to perform the LoadAll query
+                        try {
+                                return Analisis::QueryArray(QQ::Equal(QQN::Analisis()->Grupo, 1), $objOptionalClauses);
+                        } catch (QCallerException $objExc) {
+                                $objExc->IncrementOffset();
+                                throw $objExc;
+                        }
+                }
+
+
 /*
 		public static function LoadArrayBySample($strParam1, $intParam2, $objOptionalClauses = null) {
 			// This will return an array of Analisis objects
