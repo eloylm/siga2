@@ -113,8 +113,8 @@ class OrdenesTrabajoMetaControl extends OrdenesTrabajoMetaControlGen {
         $this->lstAnalisises->Name = QApplication::Translate('Análisis');
 
         $objAssociatedArray = $this->objOrdenesTrabajo->GetAnalisisArray();
-        #$objAnalisisArray = Analisis::LoadAll(QQ::OrderBy(QQN::Analisis()->Nombre, true));
-        $objAnalisisArray = Analisis::LoadbyGrupo(QQ::OrderBy(QQN::Analisis()->Nombre, false));
+        $objAnalisisArray = Analisis::LoadAll(QQ::OrderBy(QQN::Analisis()->Nombre, true));
+        #$objAnalisisArray = Analisis::LoadbyGrupo(QQ::OrderBy(QQN::Analisis()->Nombre, false));
 
         if ($objAnalisisArray) {
             
