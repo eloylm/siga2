@@ -49,7 +49,7 @@ class Dashboard extends QForm {
     protected $objMuestrasCreateNew;
     protected $objUsuariosCreateNew;
     protected $objOrdenesCreateNew;
-     protected $lnkTodosAnalisis;
+    protected $lnkTodosAnalisis;
     protected $lnkMisAnalisis;
     public $bntRefresh;
     protected $lnkVerUsuarios;
@@ -154,7 +154,7 @@ class Dashboard extends QForm {
         $this->objOrdenesCreateNew = new OrdenesTrabajoListPanel($this, 'SetEditPane', 'CloseEditPane');
         $this->objOrdenesCreateNew->btnCreateNew;
 
-        $this->lnkTodosAnalisis = new QLinkButton($this);
+        $this->lnkTodosAnalisis = new QButton($this);
         $this->lnkTodosAnalisis->Text = 'Todos los Analisis';
         $this->lnkTodosAnalisis->AddAction(new QClickEvent(), new QAjaxAction('lnkTodosAnalisis_Click'));
 
@@ -170,7 +170,7 @@ class Dashboard extends QForm {
         $this->lnkNuevoCliente->Text = 'Nuevo Cliente';
         $this->lnkNuevoCliente->AddAction(new QClickEvent(), new QAjaxAction('lnkNuevoCliente_Click'));
 
-        $this->lnkNuevoMetodo = new QButton($this);
+        $this->lnkNuevoMetodo = new QLinkButton($this);
         $this->lnkNuevoMetodo->Text = 'Nuevo Metodo';
         $this->lnkNuevoMetodo->AddAction(new QClickEvent(), new QAjaxAction('lnkNuevoMetodo_Click'));
 
