@@ -49,7 +49,7 @@ class Dashboard extends QForm {
     protected $objMuestrasCreateNew;
     protected $objUsuariosCreateNew;
     protected $objOrdenesCreateNew;
-    protected $lnkTodosAnalisis;
+     protected $lnkTodosAnalisis;
     protected $lnkMisAnalisis;
     public $bntRefresh;
     protected $lnkVerUsuarios;
@@ -63,6 +63,7 @@ class Dashboard extends QForm {
     protected $lnkVolver;
     protected $lnkNuevoEnsayo;
     protected $lnkNuevoCliente;
+    protected $lnkNuevoMetodo;
 
    
     protected function Dispatcher() {
@@ -153,7 +154,7 @@ class Dashboard extends QForm {
         $this->objOrdenesCreateNew = new OrdenesTrabajoListPanel($this, 'SetEditPane', 'CloseEditPane');
         $this->objOrdenesCreateNew->btnCreateNew;
 
-        $this->lnkTodosAnalisis = new QButton($this);
+        $this->lnkTodosAnalisis = new QLinkButton($this);
         $this->lnkTodosAnalisis->Text = 'Todos los Analisis';
         $this->lnkTodosAnalisis->AddAction(new QClickEvent(), new QAjaxAction('lnkTodosAnalisis_Click'));
 
@@ -168,6 +169,10 @@ class Dashboard extends QForm {
         $this->lnkNuevoCliente = new QLinkButton($this);
         $this->lnkNuevoCliente->Text = 'Nuevo Cliente';
         $this->lnkNuevoCliente->AddAction(new QClickEvent(), new QAjaxAction('lnkNuevoCliente_Click'));
+
+        $this->lnkNuevoMetodo = new QButton($this);
+        $this->lnkNuevoMetodo->Text = 'Nuevo Metodo';
+        $this->lnkNuevoMetodo->AddAction(new QClickEvent(), new QAjaxAction('lnkNuevoMetodo_Click'));
 
         $this->lnkVerMuestras = new QLinkButton($this);
         $this->lnkVerMuestras->Text = 'Muestras';
@@ -210,6 +215,11 @@ class Dashboard extends QForm {
     protected function lnkNuevoEnsayo_Click() {
         QRequestMode::Ajax;
         QApplication::Redirect('index.php?action=Analisis');
+    }
+
+    protected function lnkNuevoMetodo_Click() {
+        QRequestMode::Ajax;
+        QApplication::Redirect('index.php?action=Metodos');
     }
 
     protected function lnkVolver_Click() {

@@ -46,6 +46,7 @@
                 <li><?php $this->objMuestrasCreateNew->btnCreateNew->Render();?></li>
                 <li><?php $this->objOrdenesCreateNew->btnCreateNew->Render();?></li>
                 <li><?php $this->lnkNuevoEnsayo->Render();?></li>
+                <li><?php $this->lnkNuevoMetodo->Render();?></li>
                  <li><?php $this->lnkNuevoCliente->Render();?></li>
                 <li><?php $this->objUsuariosCreateNew->btnCreateNew->Render();?></li>
             </ul>
