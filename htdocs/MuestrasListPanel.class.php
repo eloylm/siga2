@@ -47,7 +47,7 @@
 
 			// Instantiate the Meta DataGrid
 			$this->dtgMuestrases = new MuestrasDataGrid($this);
-                        $this->dtgMuestrases->FilterShow = false;
+                        $this->dtgMuestrases->FilterShow = true;
 
 			// Style the DataGrid (if desired)
 			$this->dtgMuestrases->CssClass = 'datagrid';
@@ -55,7 +55,7 @@
 
 			// Add Pagination (if desired)
 			$this->dtgMuestrases->Paginator = new QPaginator($this->dtgMuestrases);
-			$this->dtgMuestrases->ItemsPerPage = 8;
+			$this->dtgMuestrases->ItemsPerPage = 15;
 
 			// Use the MetaDataGrid functionality to add Columns for this datagrid
 
@@ -66,12 +66,29 @@
 
 			// Create the Other Columns (note that you can use strings for muestras's properties, or you
 			// can traverse down QQN::muestras() to display fields that are down the hierarchy)
-			$this->dtgMuestrases->MetaAddColumn('MuestrasId');
-			$this->dtgMuestrases->MetaAddColumn('Detalle');
+		        $this->dtgMuestrases->SortColumnIndex = 1;
+        		$this->dtgMuestrases->SortDirection = 1;
+
+
+			$muestraid=$this->dtgMuestrases->MetaAddColumn('MuestrasId');
+			$muestraid->Filter = (QQ::Equal(QQN::Muestras()->MuestrasId, null));
+			$muestraid->FilterBoxSize = 10;
+			
+			$detalle=$this->dtgMuestrases->MetaAddColumn('Detalle');
+                        $detalle->Filter = (QQ::ILike(QQN::Muestras()->Detalle, null));
+                        $detalle->FilterPrefix = '%';
+                        $detalle->FilterPostfix = '%';
+                        $detalle->FilterBoxSize = 30;
+
+			$clientes=$this->dtgMuestrases->MetaAddColumn(QQN::Muestras()->Clientes->Nombre);
+			$clientes->Filter = (QQ::ILike(QQN::Muestras()->Clientes->Nombre, null));
+                        $clientes->FilterPrefix = '%';
+                        $clientes->FilterPostfix = '%';
+                        $clientes->FilterBoxSize = 30;
+
+
 			$this->dtgMuestrases->MetaAddColumn('Observaciones');
-			$this->dtgMuestrases->MetaAddColumn(QQN::Muestras()->Clientes->Nombre);
 			$this->dtgMuestrases->MetaAddColumn('Estado');
-			$this->dtgMuestrases->MetaAddColumn(QQN::Muestras()->Usuarios);
 
 			// Setup the Create New button
 			$this->btnCreateNew = new QLinkButton($this);

@@ -53,6 +53,7 @@ class Dashboard extends QForm {
     protected $lnkMisAnalisis;
     public $bntRefresh;
     protected $lnkVerUsuarios;
+    protected $lnkVerMetodos;
     protected $lnkVerMuestras;
     protected $lblNombreUsuario;
     protected $lnkVerTerminados;
@@ -149,6 +150,7 @@ class Dashboard extends QForm {
 
         $this->objUsuariosCreateNew = new UsuariosListPanel($this, 'SetEditPane','CloseEditPane');
         $this->objUsuariosCreateNew->btnCreateNew;
+        
 
         $this->objOrdenesCreateNew = new OrdenesTrabajoListPanel($this, 'SetEditPane', 'CloseEditPane');
         $this->objOrdenesCreateNew->btnCreateNew;
@@ -160,6 +162,10 @@ class Dashboard extends QForm {
         $this->lnkMisAnalisis = new QButton($this);
         $this->lnkMisAnalisis->Text = 'Mis Analisis';
         $this->lnkMisAnalisis->AddAction(new QClickEvent(), new QAjaxAction('lnkMisAnalisis_Click'));
+
+        $this->lnkVerMetodos = new QLinkButton($this);
+        $this->lnkVerMetodos->Text = 'Ver Metodos';
+        $this->lnkVerMetodos->AddAction(new QClickEvent(), new QAjaxAction('lnkVerMetodos_Click'));
 
         $this->lnkNuevoEnsayo = new QLinkButton($this);
         $this->lnkNuevoEnsayo->Text = 'Nuevo Ensayo';
@@ -212,6 +218,10 @@ class Dashboard extends QForm {
         QApplication::Redirect('index.php?action=Analisis');
     }
 
+    protected function lnkVerMetodos_Click() {
+        QRequestMode::Ajax;
+        QApplication::Redirect('index.php?action=Metodos');
+    }
     protected function lnkVolver_Click() {
         QRequestMode::Ajax;
         QApplication::Redirect('index.php');

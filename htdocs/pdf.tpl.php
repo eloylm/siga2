@@ -1,5 +1,7 @@
+<?php setlocale(LC_ALL,"es_AR.utf8");?>
 <?php $this->RenderBegin(); ?>
-<?php ob_start(); ?>
+<?php ob_start();?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
 <html>
@@ -22,6 +24,7 @@
     div#datos{  
 	width:21cm;
 	height:29.7cm;      
+	font-family:Arial, Helvetica, sans-serif; text-decoration: none;font-size: 12px;
     }
     div#logo{
         width:100%;
@@ -30,6 +33,10 @@
   border: solid #000;
   border-width: thin;
   }
+.tab {
+    display: inline-block;
+    margin-left: 8em;
+}
 
 .tabla_datos {
         font-family:Arial, Helvetica, sans-serif; text-decoration: none;font-size: 12px;
@@ -67,7 +74,7 @@
       <td align="right"><?php $this->lblCliente->Render(); ?></td>
     </tr>
     <tr>
-      <td><strong>Mercaderia</strong></td>
+      <td><strong>Mercader&iacute;a</strong></td>
       <td align="right"><?php $this->lblMuestra->Render(); ?></td>
     </tr>
     <tr>
@@ -147,10 +154,22 @@
           <b><u>Informe de Ensayo Nº <?php $this->lblOrdenesTrabajoId->Render(); ?></u></b>
       </div>
       
-  <p>Sres.</p>
-<p><?php $this->lblCliente->Render(); ?></p>
-<p><?php $this->lblClienteDireccion->Render(); ?><br></p>
-<table class=tabla_datos border="1" cellpadding="0" cellspacing="0"  style="width: 100%;">
+<p><b>Solicitante: </b><?php $this->lblCliente->Render();?></p>
+<p><b>Mercader&iacute;a: </b><?php $this->lblMuestra->Render(); ?><span class=tab>&nbsp;</span> 
+<b>Cargador: </b><?php if($this->lblCargador->Text !="") $this->lblCargador->Render();else echo ' - '; ?><br>
+<b>Buque: </b><?php if($this->lblBuque->Text != "") $this->lblBuque->Render();else echo ' - '; ?> <span class="tab">&nbsp;</span>
+<b>Destino: </b><?php if($this->lblDestino->Text != "") $this->lblDestino->Render(); echo ' - ';?> <span class="tab">&nbsp;</span>
+<b>Kg: </b> <?php if($this->lblKg->Text != "") $this->lblKg->Render(); else echo ' - '; ?> <span class="tab">&nbsp;</span>
+<br><b>Puerto: </b> <?php if($this->lblPuerto->Text != "") $this->lblPuerto->Render(); else echo ' - '; ?> <span class="tab">&nbsp;</span>
+<b>Referencia: </b><?php if($this->lblReferenciaCliente->Text != "") $this->lblReferenciaCliente->Render(); else echo ' - ';?><span class="tab">&nbsp;</span>
+<b>Observaciones: </b><?php if($this->lblObservaciones2->Text != "") $this->lblObservaciones2->Render(); else echo ' - ';?> <span class="tab">&nbsp;</span> 
+<p></p>
+<b>Condici&oacute;n de la muestra: </b> <?php if($this->lblObservaciones->Text !="") $this->lblObservaciones->Render();else echo 'En condiciones'; ?><span class="tab">&nbsp;</span>
+<b>Fecha&nbsp;ingreso&nbsp;muestra: </b> <?php $this->lblFechaEntrada->Render(); ?><span class="tab"></span>
+<b>Fecha&nbsp;del&nbsp;an&aacute;lisis:&nbsp;</b>Desde&nbsp;<?php echo $this->lblFechaEntrada->Text;?>&nbsp;hasta&nbsp;<?php echo $this->lblFechaResultados->Render(); ?></p>
+
+
+<!--table class=tabla_datos border="1" cellpadding="0" cellspacing="0"  style="width: 100%;">
 
     <tr>
       <td>
@@ -159,55 +178,55 @@
 
         <tr>
       <td><strong>Mercaderia</strong></td>
-      <td align="right"><?php $this->lblMuestra->Render(); ?></td>
+      <td align="right"><?php //$this->lblMuestra->Render(); ?></td>
     </tr>
     <tr>
       <td><strong>Cargador</strong></td>
-      <td align="right"><?php $this->lblCargador->Render(); ?></td>
+      <td align="right"><?php //$this->lblCargador->Render(); ?></td>
     </tr>
     <tr>
       <td><strong>Buque</strong></td>
-      <td align="right"><?php $this->lblBuque->Render(); ?></td>
+      <td align="right"><?php //$this->lblBuque->Render(); ?></td>
     </tr>
     <tr>
       <td><strong>Destino</strong></td>
-      <td align="right"><?php $this->lblDestino->Render(); ?></td>
+      <td align="right"><?php //$this->lblDestino->Render(); ?></td>
     </tr>
     <tr>
       <td><strong>Kg</strong></td>
-      <td align="right"><?php $this->lblKg->Render(); ?></td>
+      <td align="right"><?php //$this->lblKg->Render(); ?></td>
     </tr>
     <tr>
       <td><strong>Puerto</strong></td>
-      <td align="right"><?php $this->lblPuerto->Render(); ?></td>
+      <td align="right"><?php //$this->lblPuerto->Render(); ?></td>
     </tr>
     <tr>
       <td><strong>Referencia Cliente</strong></td>
-      <td align="right"><?php $this->lblReferenciaCliente->Render(); ?></td>
+      <td align="right"><?php //$this->lblReferenciaCliente->Render(); ?></td>
     </tr>
      <tr>
      <td><strong>Observaciones</strong></td>
-      <td align="right"><?php $this->lblObservaciones2->Render(); ?></td>
+      <td align="right"><?php //$this->lblObservaciones2->Render(); ?></td>
     </tr>
 </table></td>
     </tr>
-    <!--tr>
+    <tr>
       <td>
       Condici&oacute;n de la muestra</td>
-      <td align="right"><?php /*$this->lblObservaciones->Render();*/ ?></td>
-    </tr-->
+      <td align="right"><?php //$this->lblObservaciones->Render(); ?></td>
+    </tr>
     <tr>
       <td>Fecha ingreso muestra</td>
-      <td align="right"><?php $this->lblFechaEntrada->Render(); ?></td>
+      <td align="right"><?php //$this->lblFechaEntrada->Render(); ?></td>
     </tr>
     <tr>
         <td>Fecha del an&aacute;lisis</td>
-      <td align="right"><?php echo $this->lblFechaResultados->Render(); ?></td>
+      <td align="right"><?php //echo $this->lblFechaResultados->Render(); ?></td>
     </tr>
 
-</table>
+</table-->
 <p>&nbsp;</p>
-<table  class=tabla_datos border="1" style="width: 90%"  cellpadding="0" cellspacing="0">
+<table  class=tabla_datos border="1" style="width: auto"  cellpadding="0" cellspacing="0">
      <tr>
       <td><strong>Especificaciones</strong></td>
       <td><strong>Método de Ensayo</strong></td>
@@ -226,83 +245,20 @@
  }
 ?>
 </table>
-<p>&nbsp;</p>
-<p><strong><u>Referencias:</u></p>
-<p>Lugar de ejecuci&oacute;n de Ensayo:
-<br>
-(A): Laboratorio Central Buenos Aires<br>
-<p>Alcance de la Acreditaci&oacute;n OAA
-<br>
-(*)Los ensayos marcados con (*)
-no est&aacute;n incluidos en el alcance de la acreditaci&oacute;n del
-OAA </p>
-<p><u>Notas:</u></p>
-<p>Nota 1: Los resultados de los ensayo se refieren
-exclusivamente a la muestra entregada en las instalaciones del
-laboratorio.<br></p>
-<p>Nota 2: El presente informe de ensayo no debe
-reproducirse , excepto en su totalidad, sin la
-aprobaci&oacute;n escrita del
-laboratorio.<br></p>
-<p>Nota 3: Las opiniones, interpretaciones, etc. que se indican a
-continuaci&oacute;n est&aacute;n fuera del alcance de la
-acreditaci&oacute;n del OAA.</p>
-<p>Nota 4: Los resultados aplican a la muestra tal como se recibió<br>
-</strong></p>
-
-<table class=tabla_datos style="width: 77%"  border="1" cellpadding="0" cellspacing="0">
-      <tr>
-      <td>
-      <p>&nbsp;</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <p>&nbsp;</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <p>&nbsp;</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <p>&nbsp;</p>
-      </td>
-    </tr>
-</table>
-<p>&nbsp;</p>
-<p><strong><u>Observaciones:</u></strong></p>
-<table class=tabla_datos style="width: 77%" border="1" cellpadding="0" cellspacing="0">
-    <tr>
-      <td>
-      <p>&nbsp;</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <p>&nbsp;</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <p>&nbsp;</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <p>&nbsp;</p>
-      </td>
-    </tr>
-</table>
 <p><strong>El tiempo de conservación de las muestras será de: 3 (tres) meses</strong></p>
-<p>&nbsp;</p>
-<p><strong>Fecha de emisi&oacute;n del informe de ensayo</strong></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>Lugar y Fecha</p>
-<p>&nbsp;</p>
+<p>
+<?php
+//$currentDateTime = new DateTime('now');
+//$currentDate = $currentDateTime->format('j');
+//echo 'Buenos Aires,'.$currentDate;
+?>
+</p>
+<p>
+<?php
+		
+echo strftime("Buenos Aires, %d de %B de %Y");
+?>
+</p>
 <hr class="linea-fin" />
 <p align="right">Fin del Informe</p>
 </div>

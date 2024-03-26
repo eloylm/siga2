@@ -7,7 +7,7 @@
     ?></p>
         
 
-    <?php if(($_SESSION['UsuarioRol']=='responsablecertificados') && isset($_SESSION['resultados'])) {
+    <?php if((($_SESSION['UsuarioRol']=='responsablecertificados') || ($_SESSION['UsuarioRol']=='analistas'))  && isset($_SESSION['resultados'])) {
         echo '<p>Descargar Informe: <a href=pdf.php?action=resultados&format=doc&intOrdenesTrabajoId='.
             QApplication::QueryString('intOrdenesTrabajoId').'><img src="'. __VIRTUAL_DIRECTORY__ .'/assets/images/ico_pdf.jpg" border=0 title="Descargar Informe" alt="Descargar Informe"></a>';
     

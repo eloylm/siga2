@@ -33,6 +33,7 @@
             <li><a href="#">Ver</a></li>
             <ul class="submenu" id="sm_2">
                 <li><?php $this->lnkVerMuestras->Render();?></li>
+                <li><?php $this->lnkVerMetodos->Render();?></li>
                 <li><?php $this->lnkVerCongeladas->Render();?></li>
                 <li><?php $this->lnkVerEnProceso->Render();?></li>
             </ul>

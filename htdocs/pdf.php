@@ -57,6 +57,7 @@ protected function Form_Create() {
       $this->lblCargador->Text = $objOrdenesTrabajo->Cargador;
       $this->lblCliente->Text = $objOrdenesTrabajo->Clientes->Nombre;
       $this->lblDestino->Text = $objOrdenesTrabajo->Destino;
+      //$objOrdenesTrabajo->FechaEntrada->qFormat();
       $this->lblFechaEntrada->Text = $objOrdenesTrabajo->FechaEntrada->__toString();
       $this->lblKg->Text = $objOrdenesTrabajo->Kg;
       $this->lblMuestra->Text  = $objOrdenesTrabajo->Muestras->Detalle;
@@ -65,6 +66,7 @@ protected function Form_Create() {
       $this->lblReferenciaCliente->Text = $objOrdenesTrabajo->ReferenciaCliente;
       $this->lblNroMuestra->Text = $objOrdenesTrabajo->MuestrasId;
       $this->lblObservaciones->Text = $objOrdenesTrabajo->Muestras->Observaciones;
+      //$this->lblObservaciones2->Text = nl2br($objOrdenesTrabajo->Observaciones,true);
       $this->lblObservaciones2->Text = $objOrdenesTrabajo->Observaciones;
       $this->lblClienteDireccion->Text = $objOrdenesTrabajo->Clientes->Direccion;
       if($objOrdenesTrabajo->FechaFinalizado!=NULL){

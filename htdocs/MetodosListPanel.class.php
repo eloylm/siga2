@@ -54,7 +54,7 @@
 
 			// Add Pagination (if desired)
 			$this->dtgMetodoses->Paginator = new QPaginator($this->dtgMetodoses);
-			$this->dtgMetodoses->ItemsPerPage = 8;
+			$this->dtgMetodoses->ItemsPerPage = 15;
 
 			// Use the MetaDataGrid functionality to add Columns for this datagrid
 
