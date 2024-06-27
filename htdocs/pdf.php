@@ -58,7 +58,7 @@ protected function Form_Create() {
       $this->lblCliente->Text = $objOrdenesTrabajo->Clientes->Nombre;
       $this->lblDestino->Text = $objOrdenesTrabajo->Destino;
       //$objOrdenesTrabajo->FechaEntrada->qFormat();
-      $this->lblFechaEntrada->Text = $objOrdenesTrabajo->FechaEntrada->__toString();
+      $this->lblFechaEntrada->Text = $objOrdenesTrabajo->FechaEntrada->__toString('DD MM YYYY');
       $this->lblKg->Text = $objOrdenesTrabajo->Kg;
       $this->lblMuestra->Text  = $objOrdenesTrabajo->Muestras->Detalle;
       $this->lblOrdenesTrabajoId->Text = $objOrdenesTrabajo->OrdenesTrabajoId;

@@ -24,7 +24,7 @@
     div#datos{  
 	width:21cm;
 	height:29.7cm;      
-	font-family:Arial, Helvetica, sans-serif; text-decoration: none;font-size: 12px;
+	font-family:Arial, Helvetica, sans-serif; text-decoration: none;font-size: 11px;
     }
     div#logo{
         width:100%;
@@ -39,7 +39,7 @@
 }
 
 .tabla_datos {
-        font-family:Arial, Helvetica, sans-serif; text-decoration: none;font-size: 12px;
+        font-family:Arial, Helvetica, sans-serif; text-decoration: none;font-size: 11px;
         border: thin solid #666; border-collapse: collapse; page-break-inside:avoid;
 }
 .tabla_datos td {
@@ -54,68 +54,42 @@
 	border-top: 1px solid #8c8b8b;
 	border-bottom: 1px solid #fff;
 }
+.header {
+  border: 1px solid black;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding: 0px;
+}
+
+.cabecera{font-family:Arial, Helvetica, sans-serif; text-decoration: none;font-size: 9px;
+        border: none;  display:inline-block; font-weight:bold;
+}
   </style>
 </head>
 <body>
 
 <?php if(isset($_REQUEST['do']) and ($_REQUEST['do'] == 'orden')) {?>
 <div id="datos">
-	 <div id="logo" align="left">
-		 <h5>PG-21-F1 V1 COMANDA</h5>
-		 <H3>INSTITUTO QUÍMICO ARGENTINO S.A.</H3>
-	 </div>
-	
-          <hr>
-<h2>Nro Orden IQA: <?php $this->lblOrdenesTrabajoId->Render(); ?></h2>
-<table class=tabla_datos border="1" cellpadding="2" cellspacing="0"  style="width: 100%;">
+	<div class="cabecera" align="right">PG-21-F1 V2 COMANDA </div>
+	<div class="cabecera" align="left">INSTITUTO QUÍMICO ARGENTINO S.A.</div>
+<h5 align="center">Nro Orden IQA: <?php $this->lblOrdenesTrabajoId->Render(); ?></h5>
+<hr class="header" />
 
-    <tr>
-      <td><strong>Cliente</strong></td>
-      <td align="right"><?php $this->lblCliente->Render(); ?></td>
-    </tr>
-    <tr>
-      <td><strong>Mercader&iacute;a</strong></td>
-      <td align="right"><?php $this->lblMuestra->Render(); ?></td>
-    </tr>
-    <tr>
-      <td><strong>Cargador</strong></td>
-      <td align="right"><?php $this->lblCargador->Render(); ?></td>
-    </tr>
-    <tr>
-      <td><strong>Buque</strong></td>
-      <td align="right"><?php $this->lblBuque->Render(); ?></td>
-    </tr>
-    <tr>
-      <td><strong>Destino</strong></td>
-      <td align="right"><?php $this->lblDestino->Render(); ?></td>
-    </tr>
-    <tr>
-      <td><strong>Kg</strong></td>
-      <td align="right"><?php $this->lblKg->Render(); ?></td>
-    </tr>
-    <tr>
-      <td><strong>Puerto</strong></td>
-      <td align="right"><?php $this->lblPuerto->Render(); ?></td>
-    </tr>
-    <tr>
-      <td><strong>Ref Cliente</strong></td>
-      <td align="right"><?php $this->lblReferenciaCliente->Render(); ?></td>
-    </tr>
-    <tr>
-     <td><strong>
-      Fecha ingreso muestra</strong></td>
-      <td align="right"><?php $this->lblFechaEntrada->Render(); ?></td>
-    </tr>
-    <tr>
-     <td><strong> Condici&oacute;n de la muestra</strong></td>
-      <td align="right"><?php $this->lblObservaciones->Render(); ?></td>
-    </tr>
-    <tr>
-     <td><strong>Observaciones</strong></td>
-      <td align="right"><?php $this->lblObservaciones2->Render(); ?></td>
-    </tr>
-</table>
-<p>&nbsp;</p>
+<b>Solicitante: </b><?php $this->lblCliente->Render();?></p>
+<p><b>Mercader&iacute;a: </b><?php $this->lblMuestra->Render(); ?><span class=tab>&nbsp;</span> 
+<b>Cargador: </b><?php if($this->lblCargador->Text !="") $this->lblCargador->Render();else echo ' - '; ?><br>
+<b>Buque: </b><?php if($this->lblBuque->Text != "") $this->lblBuque->Render();else echo ' - '; ?> <span class="tab">&nbsp;</span>
+<b>Destino: </b><?php if($this->lblDestino->Text != "") $this->lblDestino->Render(); echo ' - ';?> <span class="tab">&nbsp;</span>
+<b>Kg: </b> <?php if($this->lblKg->Text != "") $this->lblKg->Render(); else echo ' - '; ?> <span class="tab">&nbsp;</span>
+<br><b>Puerto: </b> <?php if($this->lblPuerto->Text != "") $this->lblPuerto->Render(); else echo ' - '; ?> <span class="tab">&nbsp;</span>
+<b>Referencia: </b><?php if($this->lblReferenciaCliente->Text != "") $this->lblReferenciaCliente->Render(); else echo ' - ';?><span class="tab">&nbsp;</span>
+<br><b>Observaciones: </b><?php if($this->lblObservaciones2->Text != "") $this->lblObservaciones2->Render(); else echo ' - ';?> <span class="tab">&nbsp;</span> 
+<p></p>
+<b>Condici&oacute;n de la muestra: </b> <?php if($this->lblObservaciones->Text !="") $this->lblObservaciones->Render();else echo 'En condiciones'; ?><span class="tab">&nbsp;</span>
+<b>Fecha&nbsp;ingreso&nbsp;muestra: </b> <?php $this->lblFechaEntrada->Render(); ?><span class="tab"></span>
+
+<hr class="header" />
+<br>
 <table  class=tabla_datos border="1" style="width: 100%"  cellpadding="0" cellspacing="0">
      <tr>
       <td><strong>Especificaciones</strong></td>
@@ -169,62 +143,6 @@
 <b>Fecha&nbsp;del&nbsp;an&aacute;lisis:&nbsp;</b>Desde&nbsp;<?php echo $this->lblFechaEntrada->Text;?>&nbsp;hasta&nbsp;<?php echo $this->lblFechaResultados->Render(); ?></p>
 
 
-<!--table class=tabla_datos border="1" cellpadding="0" cellspacing="0"  style="width: 100%;">
-
-    <tr>
-      <td>
-      <strong>Descripci&oacute;n de la muestra</strong></td>
-      <td align="right"><table class=tabla_datos border="1" cellpadding="2" cellspacing="0"  style="width: 100%;">
-
-        <tr>
-      <td><strong>Mercaderia</strong></td>
-      <td align="right"><?php //$this->lblMuestra->Render(); ?></td>
-    </tr>
-    <tr>
-      <td><strong>Cargador</strong></td>
-      <td align="right"><?php //$this->lblCargador->Render(); ?></td>
-    </tr>
-    <tr>
-      <td><strong>Buque</strong></td>
-      <td align="right"><?php //$this->lblBuque->Render(); ?></td>
-    </tr>
-    <tr>
-      <td><strong>Destino</strong></td>
-      <td align="right"><?php //$this->lblDestino->Render(); ?></td>
-    </tr>
-    <tr>
-      <td><strong>Kg</strong></td>
-      <td align="right"><?php //$this->lblKg->Render(); ?></td>
-    </tr>
-    <tr>
-      <td><strong>Puerto</strong></td>
-      <td align="right"><?php //$this->lblPuerto->Render(); ?></td>
-    </tr>
-    <tr>
-      <td><strong>Referencia Cliente</strong></td>
-      <td align="right"><?php //$this->lblReferenciaCliente->Render(); ?></td>
-    </tr>
-     <tr>
-     <td><strong>Observaciones</strong></td>
-      <td align="right"><?php //$this->lblObservaciones2->Render(); ?></td>
-    </tr>
-</table></td>
-    </tr>
-    <tr>
-      <td>
-      Condici&oacute;n de la muestra</td>
-      <td align="right"><?php //$this->lblObservaciones->Render(); ?></td>
-    </tr>
-    <tr>
-      <td>Fecha ingreso muestra</td>
-      <td align="right"><?php //$this->lblFechaEntrada->Render(); ?></td>
-    </tr>
-    <tr>
-        <td>Fecha del an&aacute;lisis</td>
-      <td align="right"><?php //echo $this->lblFechaResultados->Render(); ?></td>
-    </tr>
-
-</table-->
 <p>&nbsp;</p>
 <table  class=tabla_datos border="1" style="width: auto"  cellpadding="0" cellspacing="0">
      <tr>
@@ -232,7 +150,6 @@
       <td><strong>Método de Ensayo</strong></td>
       <td><strong>Unidad</strong></td>
       <td><strong>Resultados</strong></td>
-      <td>U</td>
     </tr>
 <?php foreach ($this->arrResultados as $resultado){
 	echo "<tr>";
@@ -240,7 +157,6 @@
 	echo "<td>$resultado->Norma</td>";
 	echo "<td>$resultado->Medicion</td>";
 	echo "<td>$resultado->Resultado</td>";
-	echo "<td></td>";
 	echo "</tr>";
  }
 ?>
